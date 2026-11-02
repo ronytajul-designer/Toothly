@@ -43,6 +43,23 @@
     reset();
   }
 
+
+  /* ---------- Footer: live open / closed status (clinic time, San Francisco) ---------- */
+  var status = $("[data-open-status]");
+  if (status) {
+    try {
+      var parts = new Intl.DateTimeFormat("en-US", { timeZone: "America/Los_Angeles", weekday: "short", hour: "numeric", minute: "numeric", hour12: false }).formatToParts(new Date());
+      var get = function (t) { var p = parts.find(function (x) { return x.type === t; }); return p ? p.value : ""; };
+      var dayIdx = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(get("weekday"));
+      var mins = (Number(get("hour")) % 24) * 60 + Number(get("minute"));
+      var close = dayIdx === 6 ? 15 * 60 : 18 * 60;
+      var open = dayIdx >= 1 && mins >= 9 * 60 && mins < close;
+      var txt = $("[data-open-text]", status);
+      if (open) { status.classList.add("is-open"); txt.textContent = "Open now, until " + (close === 900 ? "3 PM" : "6 PM"); }
+      else { txt.textContent = (dayIdx === 6 && mins >= close) || dayIdx === 0 ? "Closed now. Opens Monday 9 AM" : "Closed now. Opens 9 AM"; }
+    } catch (e) {}
+  }
+
   /* ---------- Sticky header ---------- */
   var header = $(".site-header");
   function onScroll() { if (header) header.classList.toggle("is-scrolled", window.scrollY > 8); }
@@ -161,9 +178,7 @@
       plans.forEach(function (plan) {
         var amount = plan.getAttribute("data-" + period);
         var monthly = Number(plan.getAttribute("data-monthly"));
-        var note = period === "weekly" ? "Billed every week. Cancel anytime."
-          : period === "yearly" ? "Billed once a year. You save " + money(monthly * 12 - Number(amount)) + "."
-          : "Billed monthly. Cancel anytime.";
+        var note = period === "yearly" ? "Billed yearly. Save " + money(monthly * 12 - Number(amount)) + "." : period === "weekly" ? "Billed weekly" : "Billed monthly";
         function apply() {
           $("[data-amount]", plan).textContent = money(amount);
           $("[data-per]", plan).textContent = PER[period];

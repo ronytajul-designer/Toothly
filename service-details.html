@@ -113,15 +113,24 @@
       </section>
     </div>
 
-    <section class="container cta" style="padding-block:0 60px" aria-labelledby="cta-title">
-      <div class="cta__banner reveal reveal--zoom">
-        <div class="headline headline--center" style="max-width:none">
-          <h2 class="h-56" id="cta-title">Ready when <span class="tone">you are</span></h2>
-          <p class="p-18">Pick a time that suits you. We confirm every request within one business day.</p>
-        </div>
-        <a class="btn btn--on-brand" href="contact.html?subject=Pediatric%20Dentistry#message" data-s-book>Book a Visit</a>
+    <section class="cta-band" aria-labelledby="cta-band-title">
+      <div class="container cta-band__inner">
+        <ul class="cta-band__bubbles" aria-hidden="true">
+          <li class="b1"><img src="assets/icons/dental-01.svg" alt=""></li>
+          <li class="b2"><img src="assets/icons/dental-03.svg" alt=""></li>
+          <li class="b3"><img src="assets/icons/dental-05.svg" alt=""></li>
+          <li class="b4"><img src="assets/icons/dental-02.svg" alt=""></li>
+          <li class="b5"><img src="assets/icons/dental-04.svg" alt=""></li>
+          <li class="b6"><img src="assets/icons/dental-06.svg" alt=""></li>
+        </ul>
+        <span class="proof__faces cta-band__faces" aria-hidden="true"><img src="assets/img/avatar-laura.webp" alt="" width="96" height="144"><img src="assets/img/avatar-daniel.webp" alt="" width="96" height="96"><img src="assets/img/avatar-julia.webp" alt="" width="96" height="125"></span>
+        <h2 class="h-56" id="cta-band-title">Overdue for a checkup? <span class="tone">Your first exam is on us.</span></h2>
+        <p class="p-18">New patients get a free exam and a written plan with prices. Booking takes about a minute, and we confirm within one business day.</p>
+        <a class="btn btn--on-brand cta-band__btn" href="index.html#book"><svg aria-hidden="true" width="20" height="20"><use href="#i-calendar-check"/></svg>Book Your Free Exam</a>
+        <p class="cta-band__alt">Prefer to talk? Call <a href="tel:+11234567890">(123) 456-7890</a></p>
       </div>
     </section>
+
 
     <section class="related" aria-labelledby="rel-title">
       <div class="container section stack-60">
@@ -263,60 +272,72 @@
     </script>
 
   </main>
-  <section class="newsletter" aria-labelledby="newsletter-title">
-    <div class="container newsletter__inner">
-      <h2 class="h-48 newsletter__title reveal" id="newsletter-title">One useful dental tip a month</h2>
-      <div class="newsletter__right reveal">
-        <p class="p-16">A short email with practical advice and clinic news. No spam. Unsubscribe with one click.</p>
+  <footer class="foot" aria-labelledby="foot-title">
+    <h2 class="sr-only" id="foot-title">Toothly clinic information</h2>
+    <div class="container">
+      <div class="foot__news">
         <div>
-          <form class="subscribe" data-subscribe novalidate>
+          <p class="foot__kicker">Newsletter</p>
+          <p class="foot__news-title" id="newsletter-title">One useful dental tip a month</p>
+          <p class="foot__news-sub">Practical advice and clinic news. No spam. Unsubscribe with one click.</p>
+        </div>
+        <div class="foot__news-form">
+          <form class="subscribe subscribe--dark" data-subscribe novalidate aria-labelledby="newsletter-title">
             <label class="sr-only" for="newsletter-email">Your email address</label>
-            <input id="newsletter-email" type="email" name="email" autocomplete="email" placeholder="Your Email Address" aria-describedby="newsletter-msg">
-            <button class="btn btn--sm btn--dark" type="submit">Subscribe</button>
+            <input id="newsletter-email" type="email" name="email" autocomplete="email" placeholder="you@email.com" aria-describedby="newsletter-msg">
+            <button class="btn btn--sm" type="submit">Subscribe</button>
           </form>
           <p class="subscribe__msg" id="newsletter-msg" role="status" aria-live="polite"></p>
         </div>
       </div>
-    </div>
-  </section>
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__main">
-        <div class="footer__left">
-          <a class="logo" href="index.html" aria-label="Toothly home">
-            <img src="assets/icons/logo.svg" alt="" width="28" height="28"><span>Toothly</span>
-          </a>
-          <nav aria-label="Footer">
-            <ul class="footer__nav" role="list">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="services.html">Services</a></li>
-              <li><a href="index.html#blog">Blog</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </nav>
+
+      <div class="foot__grid">
+        <div class="foot__brand">
+          <a class="logo" href="index.html" aria-label="Toothly home"><img src="assets/icons/logo.svg" alt="" width="28" height="28"><span>Toothly</span></a>
+          <p>Unhurried dental care for the whole family, in the heart of San Francisco.</p>
+          <p class="foot__status" data-open-status><span class="foot__dot" aria-hidden="true"></span><span data-open-text>Mon to Sat, 9 AM to 6 PM</span></p>
         </div>
-        <address>
-          <ul class="contact-list" role="list" style="font-style:normal">
-            <li><span class="mask-icon" style="--src:url(../assets/icons/map-pin.svg)" aria-hidden="true"></span><span><span class="sr-only">Address: </span>123 Smile Street, San Francisco, CA</span></li>
-            <li><span class="mask-icon" style="--src:url(../assets/icons/envelope.svg)" aria-hidden="true"></span><a href="mailto:info@dentristclinic.com"><span class="sr-only">Email: </span>info@dentristclinic.com</a></li>
-            <li><span class="mask-icon" style="--src:url(../assets/icons/phone.svg)" aria-hidden="true"></span><a href="tel:+11234567890"><span class="sr-only">Phone: </span>(123) 456-7890</a></li>
+        <nav class="foot__col" aria-label="Footer">
+          <p class="foot__kicker">Explore</p>
+          <ul role="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="index.html#blog">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
-        </address>
-      </div>
-      <div class="footer__bottom">
-        <div class="footer__legal">
-          <p>© 2025 Toothly Dental Clinic. Design by Peterdraw.</p>
-          <a href="#" >Privacy Policy</a>
-          <a href="#" >Terms of Service</a>
+        </nav>
+        <div class="foot__col">
+          <p class="foot__kicker">Visit</p>
+          <address>
+            <p>123 Smile Street<br>San Francisco, CA 94110</p>
+            <p><a href="https://maps.google.com/?q=123+Smile+Street+San+Francisco+CA+94110" rel="noopener" target="_blank">Get directions<span class="sr-only"> (opens in a new tab)</span></a></p>
+          </address>
         </div>
-        <ul class="socials" role="list">
-          <li><a href="https://facebook.com" aria-label="Toothly on Facebook" rel="noopener"><svg aria-hidden="true"><use href="#i-facebook"/></svg></a></li>
-          <li><a href="https://instagram.com" aria-label="Toothly on Instagram" rel="noopener"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
-          <li><a href="https://x.com" aria-label="Toothly on X" rel="noopener"><svg aria-hidden="true"><use href="#i-x"/></svg></a></li>
+        <div class="foot__col">
+          <p class="foot__kicker">Contact</p>
+          <ul role="list">
+            <li><a href="tel:+11234567890"><span class="sr-only">Phone: </span>(123) 456-7890</a></li>
+            <li><a href="mailto:info@dentristclinic.com"><span class="sr-only">Email: </span>info@dentristclinic.com</a></li>
+          </ul>
+          <ul class="socials" role="list">
+            <li><a href="https://facebook.com" aria-label="Toothly on Facebook" rel="noopener"><svg aria-hidden="true"><use href="#i-facebook"/></svg></a></li>
+            <li><a href="https://instagram.com" aria-label="Toothly on Instagram" rel="noopener"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
+            <li><a href="https://x.com" aria-label="Toothly on X" rel="noopener"><svg aria-hidden="true"><use href="#i-x"/></svg></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="foot__bottom">
+        <p>© 2025 Toothly Dental Clinic. Design by Peterdraw.</p>
+        <ul class="foot__legal" role="list">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
         </ul>
+        <a class="foot__top" href="#main">Back to top <svg aria-hidden="true" width="16" height="16"><use href="#i-chevron"/></svg></a>
       </div>
     </div>
+    <p class="foot__wordmark" aria-hidden="true">toothly</p>
   </footer>
 
 </body>
