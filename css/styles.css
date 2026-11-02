@@ -1426,3 +1426,24 @@ body { background: var(--surface); color: var(--c-grey); }
   .director::before { display: none; }
 }
 @media (max-width: 680px) { .director > img { width: calc(100% + 48px); margin: 0 -24px 28px; height: 300px; } }
+
+/* ---------- Nav pill: soft spring motion, pressed and focus states ---------- */
+@media (min-width: 1025px) {
+  :root {
+    --spring: cubic-bezier(0.22, 1.18, 0.36, 1);
+    --spring: linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.314 7%, 0.519 10%, 0.711 13.4%, 0.853 16.9%, 0.948 20.6%, 1.002 24.5%, 1.027 28.5%, 1.031 33%, 1.02 38.4%, 1.007 45%, 0.999 55%, 1);
+  }
+  .nav__pill {
+    transition:
+      transform 620ms var(--spring), width 620ms var(--spring),
+      scale 260ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 240ms ease,
+      box-shadow 240ms ease;
+    transform-origin: center;
+  }
+  .nav__pill.is-pressed { scale: 0.94; transition-duration: 620ms, 620ms, 120ms, 240ms, 240ms; }
+  .nav__pill.is-focus { box-shadow: 0 0 0 2px var(--c-navy), 0 4px 12px -6px rgba(18,36,31,.28); }
+  .nav.has-pill > .nav__menu .nav__link { transition: color 260ms ease; -webkit-tap-highlight-color: transparent; }
+  .nav.has-pill > .nav__menu .nav__link:focus-visible { outline: none; }
+  .nav.has-pill > .nav__menu .nav__link:active { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .nav__pill { transition: opacity 150ms ease !important; } }

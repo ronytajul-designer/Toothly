@@ -28,19 +28,28 @@
       pill.style.transform = "translateX(" + (r.left - m.left - deskMenu.clientLeft) + "px)";
       pill.classList.add("is-ready");
     }
-    function reset() { moveTo(current); }
+    var leaveTimer = null, keyboard = false;
+    function reset() { clearTimeout(leaveTimer); pill.classList.remove("is-focus"); moveTo(current); }
+    function later() { clearTimeout(leaveTimer); leaveTimer = setTimeout(reset, 140); }
     navEl.classList.add("has-pill");
+    document.addEventListener("keydown", function (e) { if (e.key === "Tab") keyboard = true; });
+    document.addEventListener("pointerdown", function () { keyboard = false; });
     links.forEach(function (l) {
-      l.addEventListener("mouseenter", function () { moveTo(l); });
-      l.addEventListener("focus", function () { moveTo(l); });
+      l.addEventListener("pointerenter", function () { clearTimeout(leaveTimer); moveTo(l); });
+      l.addEventListener("focus", function () { clearTimeout(leaveTimer); moveTo(l); pill.classList.toggle("is-focus", keyboard); });
+      l.addEventListener("blur", function () { pill.classList.remove("is-focus"); });
+      l.addEventListener("pointerdown", function () { moveTo(l); pill.classList.add("is-pressed"); });
     });
-    deskMenu.addEventListener("mouseleave", reset);
-    deskMenu.addEventListener("focusout", function (e) { if (!deskMenu.contains(e.relatedTarget)) reset(); });
-    window.addEventListener("resize", reset);
+    ["pointerup", "pointercancel", "dragend"].forEach(function (ev) {
+      document.addEventListener(ev, function () { pill.classList.remove("is-pressed"); });
+    });
+    deskMenu.addEventListener("pointerleave", function () { pill.classList.remove("is-pressed"); later(); });
+    deskMenu.addEventListener("focusout", function (e) { if (!deskMenu.contains(e.relatedTarget)) later(); });
+    window.addEventListener("resize", function () { pill.style.transition = "none"; reset(); void pill.offsetWidth; pill.style.transition = ""; });
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () {
       pill.style.transition = "none"; reset(); void pill.offsetWidth; pill.style.transition = "";
     });
-    reset();
+    pill.style.transition = "none"; reset(); void pill.offsetWidth; pill.style.transition = "";
   }
 
 
