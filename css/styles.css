@@ -1480,3 +1480,58 @@ body { background: var(--surface); color: var(--c-grey); }
 .pay__list { gap: 12px 36px; }
 .pay__list li { height: auto; padding: 0; background: none; border: 0; border-radius: 0; display: inline-flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 500; color: var(--c-grey); }
 .pay__list svg { width: 22px; height: 22px; fill: none; stroke: var(--c-green); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+/* ---------- CTA band v2: hierarchy, real team faces, gentle floating icons ---------- */
+.cta-band__inner { gap: 0; }
+.cta-band__team { display: inline-flex; align-items: center; gap: 12px; padding: 6px 16px 6px 6px; margin-bottom: 28px;
+  background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.22); border-radius: var(--pill);
+  font-family: var(--font-mono); font-size: 13px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: #fff; }
+.cta-band__faces { display: flex; }
+.cta-band__faces img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 2px solid #0a7560; background: #e4f2ec; box-shadow: 0 2px 6px rgba(0,0,0,.2); }
+.cta-band__faces img + img { margin-left: -10px; }
+.cta-band .h-56 { font-size: clamp(36px, 4.4vw, 60px); line-height: 1.06; }
+.cta-band .p-18 { margin-top: 20px; color: #e9f7f1; font-size: 18px; line-height: 1.55; }
+.cta-band__btn { margin-top: 36px; }
+.cta-band__alt { margin-top: 18px; font-size: 15px; color: #d4f3e7; }
+.cta-band__alt a { color: #fff; font-weight: 500; }
+
+/* Floating icons: slow, small, out of phase */
+@keyframes bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
+@keyframes bob-r { 0%, 100% { translate: 0 0; rotate: 0deg; } 50% { translate: 0 -6px; rotate: -4deg; } }
+.cta-band__bubbles li { animation: bob 6.5s cubic-bezier(.45,0,.55,1) infinite; }
+.cta-band__bubbles .b2, .cta-band__bubbles .b5 { animation-name: bob-r; animation-duration: 7.5s; }
+.cta-band__bubbles .b1 { animation-delay: -1s; }
+.cta-band__bubbles .b2 { animation-delay: -3.2s; }
+.cta-band__bubbles .b3 { animation-delay: -5s; animation-duration: 8s; }
+.cta-band__bubbles .b4 { animation-delay: -2.4s; }
+.cta-band__bubbles .b5 { animation-delay: -0.6s; }
+.cta-band__bubbles .b6 { animation-delay: -4.1s; animation-duration: 8s; }
+@media (prefers-reduced-motion: reduce) { .cta-band__bubbles li { animation: none !important; } }
+
+/* CTA band touch-ups */
+.cta-band .h-56 .tone { color: #b8efd9; }
+.cta-band__team { white-space: nowrap; }
+@media (max-width: 480px) { .cta-band__team { font-size: 11px; gap: 8px; padding-right: 12px; } .cta-band__faces img { width: 30px; height: 30px; } }
+
+/* ---------- Footer hierarchy ---------- */
+.foot__news-title { font-size: clamp(26px, 2.6vw, 34px); }
+.foot__brand .logo { font-size: 30px; }
+.foot__brand > p:not(.foot__status) { font-size: 17px; line-height: 1.5; color: #e7f1ed; }
+.foot__kicker { color: rgba(255,255,255,.62); font-size: 12px; margin-bottom: 18px; }
+.foot__col a, .foot__col address p { font-size: 15px; color: #c9ddd5; }
+.foot__col a:hover { color: #fff; }
+.foot__col li a { min-height: 32px; }
+.foot__grid { padding-block: 64px 56px; }
+.foot__bottom { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 20px; font-size: 13px; color: rgba(255,255,255,.62); }
+.foot__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; }
+.foot__meta p { color: rgba(255,255,255,.62); }
+.foot__legal a { color: rgba(255,255,255,.72); }
+.foot__socials { justify-self: center; margin: 0 !important; display: flex; gap: 10px; }
+.foot .foot__socials a { display: grid; place-items: center; padding: 0; width: 44px; height: 44px; line-height: 0; }
+.foot .foot__socials svg { display: block; width: 20px; height: 20px; margin: 0; }
+.foot__top { justify-self: end; margin-left: 0; }
+@media (max-width: 760px) {
+  .foot__bottom { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; }
+  .foot__meta { justify-content: center; }
+  .foot__top { justify-self: center; }
+}
