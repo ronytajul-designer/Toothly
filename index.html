@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Toothly Dental Clinic, San Francisco | Unhurried Care for the Whole Family</title>
   <meta name="description" content="Checkups, fillings, braces, implants and same-day emergency care in San Francisco. Written prices before treatment. Book online in about a minute.">
-  <meta name="theme-color" content="#F6F9F8">
+  <meta name="theme-color" content="#FAFAFA">
   <link rel="icon" href="assets/icons/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/main.js" defer></script>
 </head>
@@ -64,11 +64,13 @@
 <!-- Hero + booking -->
     <section class="hero under-header" aria-labelledby="hero-title">
       <div class="container hero__inner">
-        <div class="hero__top">
-          <h1 class="h-56 hero__title reveal" id="hero-title">Unhurried dental care for the whole family</h1>
-          <div class="hero__right reveal" style="--i:1">
-            <p class="p-18">Cleanings, fillings, braces and emergencies in one San Francisco clinic. You get a written price before we start, and you can ask us to stop at any time.</p>
-            <a class="btn btn--outline" href="#book">Book a Visit</a>
+        <div class="hero__intro">
+          <p class="proof reveal"><span class="proof__faces" aria-hidden="true"><img src="assets/img/avatar-amanda.webp" alt="" width="96" height="95"><img src="assets/img/avatar-daniel.webp" alt="" width="96" height="96"><img src="assets/img/avatar-julia.webp" alt="" width="96" height="125"></span><span>Trusted by 10,000+ San Francisco patients</span></p>
+          <h1 class="h-56 hero__title reveal" id="hero-title" style="--i:1">Unhurried dental care <span class="tone">for the whole family</span></h1>
+          <p class="p-18 hero__lede reveal" style="--i:2">Cleanings, fillings, braces and emergencies in one San Francisco clinic. You get a written price before we start, and you can ask us to stop at any time.</p>
+          <div class="hero__actions reveal" style="--i:3">
+            <a class="btn" href="#book">Book a Visit</a>
+            <a class="btn btn--outline" href="#price-title">See Pricing</a>
           </div>
         </div>
         <div class="hero__booking">
@@ -121,7 +123,8 @@
     <section class="container section stack-80" aria-labelledby="services-title">
       <div class="section-head">
         <div class="headline reveal">
-          <h2 class="h-40" id="services-title">What we can help with</h2>
+          <p class="eyebrow">Services</p>
+          <h2 class="h-40" id="services-title">What we can <span class="tone">help with</span></h2>
           <p class="p-18">From a routine cleaning to a chipped tooth that can’t wait until next week</p>
         </div>
         <a class="btn btn--outline reveal" href="services.html">See All Services</a>
@@ -165,7 +168,8 @@
       <div class="why">
         <div>
           <div class="headline reveal">
-            <h2 class="h-40" id="why-title">What you can count on</h2>
+            <p class="eyebrow">Why Toothly</p>
+          <h2 class="h-40" id="why-title">What you can <span class="tone">count on</span></h2>
             <p class="p-18">Four things we do at every visit, without being asked</p>
           </div>
           <ul class="why__list" role="list" data-stagger>
@@ -192,7 +196,8 @@
       <div class="container section process">
         <div>
           <div class="headline reveal">
-            <h2 class="h-40" id="how-title">Your first visit, step by step</h2>
+            <p class="eyebrow">Process</p>
+          <h2 class="h-40" id="how-title">Your first visit, <span class="tone">step by step</span></h2>
             <p class="p-18">No surprises. Here is exactly what happens.</p>
           </div>
           <ol class="steps" role="list" data-steps>
@@ -212,7 +217,8 @@
     <!-- Video -->
     <section class="container section" aria-labelledby="video-title">
       <div class="headline headline--center reveal" style="max-width:700px">
-        <h2 class="h-40" id="video-title">Take a look inside</h2>
+        <p class="eyebrow">Clinic tour</p>
+          <h2 class="h-40" id="video-title">Take a look <span class="tone">inside</span></h2>
         <p class="p-18">Meet the team and see the rooms before you come in</p>
       </div>
       <div class="video reveal reveal--zoom">
@@ -236,7 +242,8 @@
     <!-- Doctors -->
     <section class="container section doctors" data-carousel aria-labelledby="dr-title">
       <div class="doctors__head reveal reveal--left">
-        <h2 class="h-40" id="dr-title">The people you’ll see</h2>
+        <p class="eyebrow">Our team</p>
+          <h2 class="h-40" id="dr-title">The people <span class="tone">you’ll see</span></h2>
         <div style="display:flex;flex-direction:column;gap:24px">
           <p class="p-18">Six specialists under one roof, so you rarely need a referral</p>
           <div class="carousel-nav">
@@ -256,7 +263,8 @@
     <!-- Pricing -->
     <section class="container section" aria-labelledby="price-title" data-pricing>
       <div class="headline headline--center reveal">
-        <h2 class="h-40" id="price-title">Membership plans</h2>
+        <p class="eyebrow">Pricing</p>
+          <h2 class="h-40" id="price-title">Membership plans <span class="tone">without the fine print</span></h2>
         <p class="p-18">No dental insurance? One fixed price covers your routine care. Cancel anytime.</p>
       </div>
       <fieldset class="billing reveal">
@@ -303,6 +311,7 @@
           </ul>
         </li>
         <li class="plan plan--featured reveal" data-plan="Premium Care" data-weekly="42" data-monthly="179" data-yearly="1790">
+          <p class="plan__tab">Most complete</p>
           <div class="plan__main">
             <div class="plan__info"><h3 class="h-24">Premium Care</h3><p class="p-16">Our most complete cover, for people who want cosmetic work included</p></div>
             <div>
@@ -312,12 +321,12 @@
             <a class="btn btn--block btn--on-brand" data-choose href="contact.html?subject=Premium%20Care%20plan#message">Choose Premium Care</a>
           </div>
           <ul class="benefits p-16" role="list">
-            <li><img src="assets/icons/check-circle-white.svg" alt="" width="24" height="24">Everything in Smile Plus</li>
-            <li><img src="assets/icons/check-circle-white.svg" alt="" width="24" height="24">Four cleanings a year</li>
-            <li><img src="assets/icons/check-circle-white.svg" alt="" width="24" height="24">Unlimited emergency visits</li>
-            <li><img src="assets/icons/check-circle-white.svg" alt="" width="24" height="24">20% off cosmetic treatment</li>
-            <li><img src="assets/icons/check-circle-white.svg" alt="" width="24" height="24">Night guard or retainer each year</li>
-            <li><img src="assets/icons/check-circle-white.svg" alt="" width="24" height="24">First pick of appointment times</li>
+            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">Everything in Smile Plus</li>
+            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">Four cleanings a year</li>
+            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">Unlimited emergency visits</li>
+            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">20% off cosmetic treatment</li>
+            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">Night guard or retainer each year</li>
+            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">First pick of appointment times</li>
           </ul>
         </li>
       </ul>
@@ -351,7 +360,8 @@
       <div class="container testi" data-testi>
         <div class="testi__head">
           <div class="headline reveal">
-            <h2 class="h-40" id="testi-title">In our patients’ words</h2>
+            <p class="eyebrow">Reviews</p>
+          <h2 class="h-40" id="testi-title">In our patients’ <span class="tone">words</span></h2>
             <p class="p-18">What people tell us after their visit</p>
           </div>
           <div class="carousel-nav">
@@ -405,7 +415,8 @@
     <!-- Blog -->
     <section class="container section stack-60" id="blog" aria-labelledby="blog-title">
       <div class="blog-head">
-        <h2 class="h-40 reveal" id="blog-title">Advice from our dentists</h2>
+        <p class="eyebrow">Journal</p>
+          <h2 class="h-40 reveal" id="blog-title">Advice from our <span class="tone">dentists</span></h2>
         <p class="p-18 reveal">Short, practical reads. No jargon, no sales pitch.</p>
       </div>
       <ul class="grid-3" role="list" data-stagger>
@@ -428,7 +439,7 @@
     <section class="container cta" aria-labelledby="cta-title">
       <div class="cta__banner reveal reveal--zoom">
         <div class="headline headline--center" style="max-width:none">
-          <h2 class="h-56" id="cta-title">Overdue for a checkup?</h2>
+          <h2 class="h-56" id="cta-title">Overdue <span class="tone">for a checkup?</span></h2>
           <p class="p-18">Your first exam is free for new patients. Booking takes about a minute.</p>
         </div>
         <a class="btn btn--on-brand" href="#book">Book Your Free Exam</a>
@@ -437,28 +448,29 @@
 
     <section class="container faq" aria-labelledby="faq-title">
       <div class="headline reveal reveal--left" style="gap:24px">
-        <h2 class="h-40" id="faq-title">Questions people ask before booking</h2>
+        <p class="eyebrow">Ask us anything</p>
+        <h2 class="h-40" id="faq-title">Questions people ask <span class="tone">before booking</span></h2>
         <p class="p-18">Can’t find yours? Call us on <a href="tel:+11234567890" style="color:var(--c-navy);text-decoration:underline;text-underline-offset:3px">(123) 456-7890</a> and the front desk will answer it.</p>
       </div>
       <div class="faq__list reveal" data-stagger>
         <div class="faq__item is-open">
-          <h3><button class="faq__q" type="button" aria-expanded="true" aria-controls="faq-1" id="faq-q1">Do you take my insurance?<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></h3>
+          <h3><button class="faq__q" type="button" aria-expanded="true" aria-controls="faq-1" id="faq-q1">Do you take my insurance?<span class="faq__icon" aria-hidden="true"></span></button></h3>
           <div class="faq__a" id="faq-1" role="region" aria-labelledby="faq-q1"><div><p class="p-16">Most likely. We work with most major PPO plans and file the claim for you. Send us your plan name before your visit and we’ll check your coverage, so you know what you’ll pay before you arrive.</p></div></div>
         </div>
         <div class="faq__item">
-          <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-2" id="faq-q2">Will whitening damage my teeth?<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></h3>
+          <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-2" id="faq-q2">Will whitening damage my teeth?<span class="faq__icon" aria-hidden="true"></span></button></h3>
           <div class="faq__a" id="faq-2" role="region" aria-labelledby="faq-q2" aria-hidden="true"><div><p class="p-16">No. Whitening done under a dentist’s supervision doesn’t harm enamel. Some people feel mild sensitivity for a day or two. We check your teeth and gums first and adjust the strength if you’re prone to it.</p></div></div>
         </div>
         <div class="faq__item">
-          <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-3" id="faq-q3">How often should I come in?<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></h3>
+          <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-3" id="faq-q3">How often should I come in?<span class="faq__icon" aria-hidden="true"></span></button></h3>
           <div class="faq__a" id="faq-3" role="region" aria-labelledby="faq-q3" aria-hidden="true"><div><p class="p-16">For most people, every six months. If you have gum disease, wear braces, or get cavities often, we may suggest every three or four months. We’ll tell you which applies to you after your first exam.</p></div></div>
         </div>
         <div class="faq__item">
-          <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-4" id="faq-q4">From what age do you see children?<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></h3>
+          <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-4" id="faq-q4">From what age do you see children?<span class="faq__icon" aria-hidden="true"></span></button></h3>
           <div class="faq__a" id="faq-4" role="region" aria-labelledby="faq-q4" aria-hidden="true"><div><p class="p-16">From their first tooth, or by their first birthday. Early visits are short and mostly about getting comfortable. Parents can stay in the room the whole time.</p></div></div>
         </div>
         <div class="faq__item">
-          <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-5" id="faq-q5">I get very nervous. Can you help?<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></h3>
+          <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-5" id="faq-q5">I get very nervous. Can you help?<span class="faq__icon" aria-hidden="true"></span></button></h3>
           <div class="faq__a" id="faq-5" role="region" aria-labelledby="faq-q5" aria-hidden="true"><div><p class="p-16">Yes, and you’re far from alone. Mention it when you book. We’ll explain each step before we start, agree on a hand signal to pause, and give you breaks whenever you want them. Sedation is available for longer treatments.</p></div></div>
         </div>
       </div>

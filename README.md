@@ -18,19 +18,26 @@ Root `*.html` files are generated. Edit `src/pages/*.html` or `src/partials/*.ht
 python3 tools/build.py
 ```
 
-## Color palette (final: Option B, Navy CTA)
+## Visual style
+
+Studio-style theme inspired by gr8rstudio.com, kept in the clinic's green:
+off-white canvas, white bordered cards, two-tone display headings, mono uppercase labels,
+glowing pill buttons with an arrow, boxed FAQ, green CTA panels and a deep green footer.
+
+Fonts: Funnel Display (headings), Inter (body), Geist Mono (labels, nav, buttons).
 
 | Role | Color | Contrast |
 |---|---|---|
-| Headings, primary buttons (white text) | Navy #0E2A42 | 14.7:1 on white |
-| Body text | Grey #485D6F | 6.5:1 on Grey Subtle |
-| Muted text (was #697884) | #5F6E7A | 4.96:1 on Grey Subtle |
-| Indicators: active nav, step bar, icons | Teal #3A7D73 | 4.55:1 on Grey Subtle |
-| Form field borders | #7D8D99 | 3.2:1 or more |
-| Brand surfaces (cards, banners) | Mint #C6E3DE | unchanged |
-| Photo scrims under white text | navy gradient to 92% | text 4.6 to 7.5:1 |
-
-The comparison of the options considered is in `docs/palette-comparison.png`.
+| Ink (headings) | #12241F | 15.5:1 on #FAFAFA |
+| Body text | #46564F | 7:1+ |
+| Muted text | #5E6E69 | 4.9:1 on #F3F6F5 |
+| Heading second tone (large text only) | #7A8A85 | 3.3:1 |
+| Primary button | gradient #0C8466 to #0A6F59, white text | 4.66:1 minimum |
+| Green text, badges | #0B7D64 | 5.08:1 |
+| Green tint surfaces | #DCF0E7 | ink 13.6:1 |
+| CTA panels | gradient #0D8A6D / #0A7560 / #095E4D | body text 5.2:1+, headings 4.6:1+ |
+| Footer | #0A3B30, links #C9DDD5 | 8.8:1 |
+| Field borders | #8A9893 | 3.0:1 |
 
 ## Accessibility work (independent of palette)
 
