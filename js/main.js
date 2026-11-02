@@ -131,6 +131,9 @@
 
   /* ---------- Sticky header ---------- */
   var header = $(".site-header");
+  function setHeaderH() { if (header) root.style.setProperty("--header-h", header.offsetHeight + "px"); }
+  setHeaderH(); window.addEventListener("resize", setHeaderH); window.addEventListener("load", setHeaderH);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(setHeaderH);
   function onScroll() { if (header) header.classList.toggle("is-scrolled", window.scrollY > 8); }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
