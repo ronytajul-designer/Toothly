@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="no-js" data-palette="a">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +11,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <script>try{var p=new URLSearchParams(location.search).get("palette")||localStorage.getItem("toothly-palette");if(/^(original|a|b|c)$/.test(p))document.documentElement.setAttribute("data-palette",p)}catch(e){}</script>
   <script src="js/main.js" defer></script>
 </head>
 <body class="page-about">
@@ -223,20 +222,6 @@
       </div>
     </div>
   </footer>
-
-  <aside class="palette" aria-label="Palette preview">
-    <button class="palette__toggle" type="button" aria-expanded="false" aria-controls="palette-options">
-      <span>Palette preview</span>
-      <svg aria-hidden="true"><use href="#i-chevron"/></svg>
-    </button>
-    <fieldset id="palette-options">
-      <legend>Temporary tool for choosing the final palette</legend>
-      <label><input type="radio" name="palette" value="original"><span>Original (Figma)</span><span class="sw" aria-hidden="true"><i style="background:#C6E3DE"></i><i style="background:#697884"></i><i style="background:#0E2A42"></i></span></label>
-      <label><input type="radio" name="palette" value="a"><span>A. Brand-safe fix</span><span class="sw" aria-hidden="true"><i style="background:#C6E3DE"></i><i style="background:#3A7D73"></i><i style="background:#0E2A42"></i></span></label>
-      <label><input type="radio" name="palette" value="b"><span>B. Navy CTA</span><span class="sw" aria-hidden="true"><i style="background:#C6E3DE"></i><i style="background:#3A7D73"></i><i style="background:#0E2A42;border-color:#0E2A42"></i></span></label>
-      <label><input type="radio" name="palette" value="c"><span>C. Deep teal brand</span><span class="sw" aria-hidden="true"><i style="background:#C6E3DE"></i><i style="background:#2E6E65"></i><i style="background:#0E2A42"></i></span></label>
-    </fieldset>
-  </aside>
 
 </body>
 </html>

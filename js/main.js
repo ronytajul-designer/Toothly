@@ -8,33 +8,6 @@
 
   function $(sel, ctx) { return (ctx || document).querySelector(sel); }
   function $$(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
-  function store(key, val) {
-    try { if (val === undefined) return localStorage.getItem(key); localStorage.setItem(key, val); } catch (e) { return null; }
-  }
-
-  /* ---------- Palette preview (temporary decision tool) ---------- */
-  var PALETTES = ["original", "a", "b", "c"];
-  var urlPalette = new URLSearchParams(location.search).get("palette");
-  var savedPalette = PALETTES.indexOf(urlPalette) > -1 ? urlPalette : store("toothly-palette");
-  if (PALETTES.indexOf(savedPalette) > -1) root.setAttribute("data-palette", savedPalette);
-  else root.setAttribute("data-palette", "a");
-
-  var palette = $(".palette");
-  if (palette) {
-    var current = root.getAttribute("data-palette");
-    $$("input[name=palette]", palette).forEach(function (input) {
-      input.checked = input.value === current;
-      input.addEventListener("change", function () {
-        root.setAttribute("data-palette", input.value);
-        store("toothly-palette", input.value);
-      });
-    });
-    var pToggle = $(".palette__toggle", palette);
-    pToggle.addEventListener("click", function () {
-      var open = palette.classList.toggle("is-open");
-      pToggle.setAttribute("aria-expanded", String(open));
-    });
-  }
 
   /* ---------- Sticky header ---------- */
   var header = $(".site-header");

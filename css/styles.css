@@ -2,11 +2,8 @@
    Toothly, dental clinic website
    Built from the "Toothly - Dental Clinic Website UI" Figma template.
 
-   Palettes:
-   - [data-palette="original"]  exact Figma tokens
-   - [data-palette="a"]         Brand-safe fix (recommended, default)
-   - [data-palette="b"]         Navy CTA
-   - [data-palette="c"]         Deep teal brand
+   Palette: Option B "Navy CTA" (final). Mint is the brand surface,
+   teal #3A7D73 marks UI indicators, navy carries primary actions.
    ========================================================================== */
 
 /* ---------- Tokens ---------- */
@@ -22,7 +19,7 @@
   --c-white: #ffffff;
   --c-star: #fbc568;
 
-  /* Semantic roles (overridden per palette) */
+  /* Semantic roles (Figma defaults, final overrides below) */
   --text-strong: var(--c-navy);
   --text-body: var(--c-grey);
   --text-muted: var(--c-grey-light);
@@ -67,23 +64,8 @@
   --dur-slow: 700ms;
 }
 
-/* Option A, Brand-safe fix (recommended): keeps Mint as the brand surface,
-   adds a darker teal for anything that must be *seen* (borders, icons, indicators). */
-:root[data-palette="a"],
-:root:not([data-palette]) {
-  --text-muted: #5f6e7a;          /* 4.96:1 on Grey Subtle (was 4.29:1) */
-  --placeholder: #5f6e7a;
-  --accent: #3a7d73;              /* 4.82:1 on white, 4.55:1 on Subtle */
-  --field-border: #7d8d99;        /* 3.42:1 on white, 3.23:1 on Subtle */
-  --field-border-alt: #7d8d99;
-  --btn-outline: #3a7d73;
-  --photo-scrim: linear-gradient(180deg, rgba(14, 42, 66, 0) 35%, rgba(14, 42, 66, 0.72) 78%, rgba(14, 42, 66, 0.92) 100%);
-  --photo-scrim-card: linear-gradient(180deg, rgba(14, 42, 66, 0.15) 0%, rgba(14, 42, 66, 0.55) 55%, rgba(14, 42, 66, 0.92) 100%);
-}
-
-/* Option B, Navy CTA: everything in A, plus primary buttons become navy
-   so the main conversion action is the highest-contrast element on screen. */
-:root[data-palette="b"] {
+/* Final palette (Option B) */
+:root {
   --text-muted: #5f6e7a;
   --placeholder: #5f6e7a;
   --accent: #3a7d73;
@@ -94,23 +76,6 @@
   --btn-hover: #1b3d5c;
   --btn-outline: var(--c-navy);
   --btn-on-brand-bg: var(--c-navy);
-  --btn-on-brand-fg: var(--c-white);
-  --photo-scrim: linear-gradient(180deg, rgba(14, 42, 66, 0) 35%, rgba(14, 42, 66, 0.72) 78%, rgba(14, 42, 66, 0.92) 100%);
-  --photo-scrim-card: linear-gradient(180deg, rgba(14, 42, 66, 0.15) 0%, rgba(14, 42, 66, 0.55) 55%, rgba(14, 42, 66, 0.92) 100%);
-}
-
-/* Option C, Deep teal brand: teal becomes the action color, mint stays as tint. */
-:root[data-palette="c"] {
-  --text-muted: #5f6e7a;
-  --placeholder: #5f6e7a;
-  --accent: #2e6e65;              /* 5.94:1 on white */
-  --field-border: #7d8d99;
-  --field-border-alt: #7d8d99;
-  --btn-bg: #2e6e65;
-  --btn-fg: var(--c-white);
-  --btn-hover: #245a53;
-  --btn-outline: #2e6e65;
-  --btn-on-brand-bg: #2e6e65;
   --btn-on-brand-fg: var(--c-white);
   --photo-scrim: linear-gradient(180deg, rgba(14, 42, 66, 0) 35%, rgba(14, 42, 66, 0.72) 78%, rgba(14, 42, 66, 0.92) 100%);
   --photo-scrim-card: linear-gradient(180deg, rgba(14, 42, 66, 0.15) 0%, rgba(14, 42, 66, 0.55) 55%, rgba(14, 42, 66, 0.92) 100%);
@@ -220,7 +185,7 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
 .icon-btn[aria-disabled="true"] svg { color: var(--c-blue-light); }
 .icon-btn svg { width: 26px; height: 26px; color: var(--c-navy); }
 
-/* Mask icon: single-color SVG tinted by palette */
+/* Mask icon: single-color SVG tinted with the accent color */
 .mask-icon {
   display: inline-block; width: 24px; height: 24px; flex: none;
   background-color: var(--accent);
@@ -428,8 +393,8 @@ input[type="date"].field__control::-webkit-calendar-picker-indicator { opacity: 
 .play-btn::after { animation-delay: 1.2s; }
 .play-btn svg { width: 32px; height: 32px; margin-left: 4px; }
 .play-btn:hover { transform: translate(-50%, -50%) scale(1.08); }
-:root:not([data-palette="original"]) .play-btn { background: var(--c-navy); }
-:root:not([data-palette="original"]) .play-btn:hover { background: #1b3d5c; }
+.play-btn { background: var(--c-navy); }
+.play-btn:hover { background: #1b3d5c; }
 @keyframes ripple { from { transform: scale(1); opacity: .8; } to { transform: scale(1.7); opacity: 0; } }
 
 dialog.modal { border: 0; padding: 0; border-radius: 24px; width: min(960px, calc(100% - 32px)); background: #000; color: #fff; overflow: hidden; }
@@ -689,29 +654,6 @@ dialog.modal[open] { animation: modal-in var(--dur) var(--ease-out); }
 .sched-table dd { color: var(--c-navy); font-weight: 600; line-height: 1.2; white-space: nowrap; }
 .sched-table > div.is-today dt { color: var(--c-navy); font-weight: 500; }
 
-/* ---------- Palette switcher (temporary, for decision) ---------- */
-.palette {
-  position: fixed; left: 16px; bottom: 16px; z-index: 150;
-  background: #fff; border-radius: 20px; padding: 2px 14px;
-  box-shadow: 0 20px 40px -20px rgba(14, 42, 66, .45), 0 0 0 1px rgba(14,42,66,.08);
-  font-size: 14px; color: var(--c-navy);
-}
-.palette fieldset { display: none; }
-.palette.is-open { width: 268px; padding: 12px; }
-.palette.is-open fieldset { display: flex; animation: modal-in var(--dur) var(--ease-out); }
-.palette__toggle { gap: 10px; }
-.palette__toggle { width: 100%; display: flex; justify-content: space-between; align-items: center; min-height: 44px; font-weight: 600; }
-.palette__toggle svg { width: 18px; height: 18px; transition: transform var(--dur); }
-.palette.is-open .palette__toggle svg { transform: rotate(180deg); }
-.palette fieldset { border: 0; padding: 0; margin: 12px 0 0; display: flex; flex-direction: column; gap: 6px; }
-.palette legend { font-size: 12px; color: #5f6e7a; margin-bottom: 4px; }
-.palette label { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 12px; cursor: pointer; min-height: 44px; }
-.palette label:hover { background: var(--c-subtle); }
-.palette input { accent-color: var(--c-navy); width: 24px; height: 24px; margin: 0; }
-.palette input:checked + span { font-weight: 600; }
-.palette .sw { display: flex; margin-left: auto; }
-.palette .sw i { width: 14px; height: 14px; border-radius: 50%; border: 1px solid rgba(14,42,66,.25); margin-left: -4px; }
-
 /* ==========================================================================
    Responsive
    ========================================================================== */
@@ -807,8 +749,6 @@ dialog.modal[open] { animation: modal-in var(--dur) var(--ease-out); }
   .t-card__head { flex-direction: column; align-items: flex-start; gap: 12px; }
   .footer { padding-top: 64px; }
   .footer__nav { gap: 8px 28px; }
-  .palette { left: 8px; bottom: 8px; }
-  .palette.is-open { right: 8px; width: auto; }
   .btn { white-space: normal; text-align: center; line-height: 1.2; }
   .hero__right .btn { width: 100%; }
 }
