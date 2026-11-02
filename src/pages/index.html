@@ -1,58 +1,55 @@
 <!--meta title="Toothly Dental Clinic, San Francisco | Unhurried Care for the Whole Family" description="Checkups, fillings, braces, implants and same-day emergency care in San Francisco. Written prices before treatment. Book online in about a minute." active="home" body="page-home" -->
-    <!-- Hero + booking -->
-    <section class="hero under-header" aria-labelledby="hero-title">
-      <div class="container hero__inner">
-        <div class="hero__intro">
-          <p class="proof reveal"><span class="proof__faces" aria-hidden="true"><i class="t1">AL</i><i class="t2">DW</i><i class="t3">JM</i></span><span>Trusted by 10,000+ San Francisco patients</span></p>
-          <h1 class="h-56 hero__title reveal" id="hero-title" style="--i:1">Unhurried dental care <span class="tone">for the whole family</span></h1>
-          <p class="p-18 hero__lede reveal" style="--i:2">Cleanings, fillings, braces and emergencies in one San Francisco clinic. You get a written price before we start, and you can ask us to stop at any time.</p>
-          <div class="hero__actions reveal" style="--i:3">
-            <a class="btn" href="#book">Book a Visit</a>
-            <a class="btn btn--outline" href="#price-title">See Pricing</a>
-          </div>
-        </div>
-        <div class="hero__booking">
-          <div class="booking reveal reveal--left" id="book">
-            <div style="display:flex;flex-direction:column;gap:8px">
-              <h2 class="h-24">Book your visit</h2>
-              <p class="p-16">Takes about a minute. We confirm by email within one business day.</p>
-            </div>
-            <form class="form" data-validate novalidate data-success="Thanks{name}. Your request is in. We’ll email you within one business day to confirm the time.">
-              <div class="field">
+    <!-- Hero -->
+    <section class="hero2" aria-labelledby="hero-title">
+      <div class="hero2__bg" aria-hidden="true">
+        <img src="assets/img/hero-wide.webp" srcset="assets/img/hero-wide-sm.webp 900w, assets/img/hero-wide.webp 1536w" sizes="100vw" alt="" width="1536" height="864" fetchpriority="high">
+      </div>
+      <div class="container hero2__content">
+        <p class="hero2__rating reveal"><span class="hero2__faces" aria-hidden="true"><img src="assets/img/face-liana.webp" alt="" width="160" height="160"><img src="assets/img/face-naya.webp" alt="" width="160" height="160"><img src="assets/img/face-marco.webp" alt="" width="160" height="160"><img src="assets/img/face-owen.webp" alt="" width="160" height="160"></span><span class="hero2__stars" aria-hidden="true">★★★★★</span><span>4.9 from 10,000+ patients</span></p>
+        <h1 class="hero2__title reveal" id="hero-title" style="--i:1">Unhurried dental care <em>for the whole family.</em></h1>
+        <p class="hero2__lede reveal" style="--i:2">Checkups, fillings, braces and same-day emergencies in one San Francisco clinic. A written price before we start, every time.</p>
+      </div>
+      <div class="container hero2__cards">
+        <form class="hero2__form reveal" id="book" data-validate novalidate data-success="Thanks{name}. Your request is in. We’ll email you within one business day to confirm the time." aria-labelledby="book-title">
+          <h2 class="sr-only" id="book-title">Book your visit</h2>
+          <div class="hero2__grid">
+              <div class="field field--alt">
                 <input class="field__control" id="b-name" name="name" type="text" autocomplete="name" placeholder=" " required data-label="Full name" aria-describedby="b-name-err">
                 <label class="field__label" for="b-name">Full Name</label>
                 <p class="field__error" id="b-name-err"></p>
               </div>
-              <div class="field">
-                <input class="field__control" id="b-email" name="email" type="email" autocomplete="email" placeholder=" " required data-label="Email address" aria-describedby="b-email-err">
-                <label class="field__label" for="b-email">Email Address</label>
-                <p class="field__error" id="b-email-err"></p>
+              <div class="field field--alt field--static">
+                <select class="field__control" id="b-service" name="service" required data-label="Service" aria-describedby="b-service-err">
+                  <option value="">Select a service</option>
+                  <option>Checkup and cleaning</option><option>Cosmetic dentistry</option><option>Orthodontics</option>
+                  <option>Pediatric dentistry</option><option>Dental implants</option><option>Emergency care</option>
+                </select>
+                <label class="field__label" for="b-service">Service</label>
+                <img class="field__icon" src="assets/icons/caret-down.svg" alt="" width="18" height="18">
+                <p class="field__error" id="b-service-err"></p>
               </div>
-              <div class="field field--static">
+              <div class="field field--alt field--static">
                 <input class="field__control" id="b-date" name="date" type="date" required data-booking-date data-label="Date" aria-describedby="b-date-err">
                 <label class="field__label" for="b-date">Preferred Date</label>
                 <img class="field__icon" src="assets/icons/calendar.svg" alt="" width="18" height="18">
                 <p class="field__error" id="b-date-err"></p>
               </div>
-              <div class="field field--static">
-                <select class="field__control" id="b-time" name="time" required data-booking-time data-label="Time" aria-describedby="b-time-err">
-                  <option value="">Select a time</option>
-                </select>
-                <label class="field__label" for="b-time">Preferred Time</label>
-                <img class="field__icon" src="assets/icons/caret-down.svg" alt="" width="18" height="18">
-                <p class="field__error" id="b-time-err"></p>
+              <div class="field field--alt">
+                <input class="field__control" id="b-phone" name="phone" type="tel" autocomplete="tel" placeholder=" " required data-label="Phone number" aria-describedby="b-phone-err">
+                <label class="field__label" for="b-phone">Phone Number</label>
+                <p class="field__error" id="b-phone-err"></p>
               </div>
-              <div class="form-status" role="status" aria-live="polite" tabindex="-1"></div>
-              <div><button class="btn" type="submit">Request Appointment</button></div>
-            </form>
           </div>
-          <div class="hero__media reveal reveal--zoom" style="--i:1">
-            <img src="assets/img/hero.webp" alt="Smiling young patient in a dental chair while a dentist checks her teeth" width="1500" height="1000" fetchpriority="high">
-            <div class="hero__badge" aria-hidden="true">
-              <span class="hero__badge-icon"><svg width="24" height="24"><use href="#i-calendar-check"/></svg></span>
-              <div><strong>Open this week</strong><span>Mon to Sat, from 9 AM</span></div>
-            </div>
+          <div class="form-status" role="status" aria-live="polite" tabindex="-1"></div>
+          <div class="hero2__submit"><button class="btn" type="submit">Book Appointment</button><p>We confirm within one business day.</p></div>
+        </form>
+        <div class="hero2__call reveal" style="--i:1">
+          <div class="hero2__call-top">
+            <span class="hero2__call-ic" aria-hidden="true"><img src="assets/icons/phone.svg" alt="" width="22" height="22"></span>
+            <div><p class="hero2__call-label">Prefer to talk?</p><a class="hero2__call-num" href="tel:+11234567890">(123) 456-7890</a></div>
           </div>
+          <p>Not sure which service you need? Our front desk will help you pick, Monday to Saturday.</p>
+          <a class="btn btn--light btn--block" href="tel:+11234567890">Call the Clinic</a>
         </div>
       </div>
     </section>
