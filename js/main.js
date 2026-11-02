@@ -11,69 +11,88 @@
 
 
 
-  /* ---------- Desktop nav: spring-driven pill ----------
-     A small damped spring (no CSS transitions) so the pill keeps its velocity
-     when the target changes mid-move. Slightly under-damped: about 1% overshoot. */
+  /* ---------- Desktop nav: two indicators ----------
+     .nav__ghost  faint highlight that follows hover / keyboard focus
+     .nav__pill   white "selected" pill: sits on the current page, moves only on click
+     Both are driven by a small damped spring so moves stay smooth when interrupted. */
   var deskMenu = $(".nav > .nav__menu");
   if (deskMenu) {
     var navEl = deskMenu.parentElement;
-    var pill = document.createElement("span");
-    pill.className = "nav__pill"; pill.setAttribute("aria-hidden", "true");
-    deskMenu.appendChild(pill);
     var links = $$(".nav__link", deskMenu);
     var current = $(".nav__link[aria-current=page]", deskMenu);
-    var K = 420, C = 31;                       // stiffness, damping (critical ~41): gentle ~2% overshoot
-    var st = { x: 0, w: 0, vx: 0, vw: 0, tx: 0, tw: 0 }, raf = null, last = 0, placed = false;
-    var leaveTimer = null, keyboard = false, target = null;
-
-    function measure(link) {
-      var m = deskMenu.getBoundingClientRect(), r = link.getBoundingClientRect();
-      return { x: r.left - m.left - deskMenu.clientLeft, w: r.width };
+    function makeIndicator(cls, K, C) {
+      var el = document.createElement("span"); el.className = cls; el.setAttribute("aria-hidden", "true");
+      deskMenu.insertBefore(el, deskMenu.firstChild);
+      var st = { x: 0, w: 0, vx: 0, vw: 0, tx: 0, tw: 0 }, raf = null, last = 0, placed = false;
+      function paint() { el.style.width = st.w.toFixed(2) + "px"; el.style.transform = "translate3d(" + st.x.toFixed(2) + "px,0,0)"; }
+      function step(t) {
+        var dt = Math.min(0.032, (t - last) / 1000 || 0.016); last = t;
+        st.vx += (K * (st.tx - st.x) - C * st.vx) * dt; st.vw += (K * (st.tw - st.w) - C * st.vw) * dt;
+        st.x += st.vx * dt; st.w += st.vw * dt; paint();
+        if (Math.abs(st.tx - st.x) < 0.1 && Math.abs(st.vx) < 0.1 && Math.abs(st.tw - st.w) < 0.1 && Math.abs(st.vw) < 0.1) {
+          st.x = st.tx; st.w = st.tw; st.vx = st.vw = 0; paint(); raf = null;
+        } else raf = requestAnimationFrame(step);
+      }
+      return {
+        el: el,
+        to: function (link, instant) {
+          var m = deskMenu.getBoundingClientRect(), r = link.getBoundingClientRect();
+          st.tx = r.left - m.left - deskMenu.clientLeft; st.tw = r.width;
+          if (instant || !placed || reduceMotion.matches) {
+            st.x = st.tx; st.w = st.tw; st.vx = st.vw = 0; paint(); placed = true;
+            if (raf) { cancelAnimationFrame(raf); raf = null; }
+          } else if (!raf) { last = performance.now(); raf = requestAnimationFrame(step); }
+        }
+      };
     }
-    function paint() {
-      pill.style.width = st.w.toFixed(2) + "px";
-      pill.style.transform = "translate3d(" + st.x.toFixed(2) + "px,0,0)";
-    }
-    function step(t) {
-      var dt = Math.min(0.032, (t - last) / 1000 || 0.016); last = t;
-      var ax = K * (st.tx - st.x) - C * st.vx, aw = K * (st.tw - st.w) - C * st.vw;
-      st.vx += ax * dt; st.vw += aw * dt; st.x += st.vx * dt; st.w += st.vw * dt;
-      paint();
-      var done = Math.abs(st.tx - st.x) < 0.1 && Math.abs(st.vx) < 0.1 && Math.abs(st.tw - st.w) < 0.1 && Math.abs(st.vw) < 0.1;
-      if (done) { st.x = st.tx; st.w = st.tw; st.vx = st.vw = 0; paint(); raf = null; }
-      else raf = requestAnimationFrame(step);
-    }
-    function moveTo(link, instant) {
-      target = link;
-      links.forEach(function (l) { l.classList.toggle("is-target", l === link); });
-      if (!link) { pill.classList.remove("is-ready"); return; }
-      var g = measure(link); st.tx = g.x; st.tw = g.w;
-      if (instant || !placed || reduceMotion.matches) {
-        st.x = st.tx; st.w = st.tw; st.vx = st.vw = 0; paint(); placed = true;
-        if (raf) { cancelAnimationFrame(raf); raf = null; }
-      } else if (!raf) { last = performance.now(); raf = requestAnimationFrame(step); }
-      pill.classList.add("is-ready");
-    }
-    function reset(instant) { clearTimeout(leaveTimer); pill.classList.remove("is-focus"); moveTo(current, instant); }
-    function later() { clearTimeout(leaveTimer); leaveTimer = setTimeout(function () { reset(false); }, 160); }
-
+    var ghost = makeIndicator("nav__ghost", 520, 40);   // quick, no overshoot
+    var pill = makeIndicator("nav__pill", 420, 30);     // a touch of spring
+    var hovered = null, keyboard = false, hideTimer = null;
     navEl.classList.add("has-pill");
+
+    function showGhost(link, viaKeyboard) {
+      clearTimeout(hideTimer);
+      hovered = link;
+      links.forEach(function (l) { l.classList.toggle("is-hover", l === link); });
+      var onSelected = link === (pill.selected || current);
+      ghost.to(link, !ghost.el.classList.contains("is-on"));
+      ghost.el.classList.toggle("is-on", !onSelected || viaKeyboard);
+      ghost.el.classList.toggle("is-focus", !!viaKeyboard);
+    }
+    function hideGhost() {
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(function () {
+        hovered = null; links.forEach(function (l) { l.classList.remove("is-hover"); });
+        ghost.el.classList.remove("is-on", "is-focus");
+      }, 90);
+    }
+    function select(link, instant) {
+      pill.selected = link;
+      links.forEach(function (l) { l.classList.toggle("is-target", l === link); });
+      pill.to(link, instant);
+      pill.el.classList.add("is-ready");
+    }
+
     document.addEventListener("keydown", function (e) { if (e.key === "Tab") keyboard = true; });
     document.addEventListener("pointerdown", function () { keyboard = false; });
     links.forEach(function (l) {
-      l.addEventListener("pointerenter", function () { clearTimeout(leaveTimer); moveTo(l); });
-      l.addEventListener("focus", function () { clearTimeout(leaveTimer); moveTo(l); pill.classList.toggle("is-focus", keyboard); });
-      l.addEventListener("blur", function () { pill.classList.remove("is-focus"); });
-      l.addEventListener("pointerdown", function () { moveTo(l); pill.classList.add("is-pressed"); });
+      l.addEventListener("pointerenter", function () { showGhost(l, false); });
+      l.addEventListener("focus", function () { if (keyboard) showGhost(l, true); });
+      l.addEventListener("blur", function () { hideGhost(); });
+      l.addEventListener("pointerdown", function () {
+        select(l); pill.el.classList.add("is-pressed");
+        ghost.el.classList.remove("is-on");
+      });
     });
     ["pointerup", "pointercancel", "dragend"].forEach(function (ev) {
-      document.addEventListener(ev, function () { pill.classList.remove("is-pressed"); });
+      document.addEventListener(ev, function () { pill.el.classList.remove("is-pressed"); });
     });
-    deskMenu.addEventListener("pointerleave", function () { pill.classList.remove("is-pressed"); later(); });
-    deskMenu.addEventListener("focusout", function (e) { if (!deskMenu.contains(e.relatedTarget)) later(); });
-    window.addEventListener("resize", function () { moveTo(target || current, true); });
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { moveTo(target || current, true); });
-    reset(true);
+    deskMenu.addEventListener("pointerleave", hideGhost);
+    function relayout() { if (pill.selected) pill.to(pill.selected, true); if (hovered) ghost.to(hovered, true); }
+    window.addEventListener("resize", relayout);
+    window.addEventListener("pageshow", function () { if (current) select(current, true); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
+    if (current) select(current, true);
   }
 
   /* ---------- Sticky header ---------- */

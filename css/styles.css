@@ -1535,3 +1535,110 @@ body { background: var(--surface); color: var(--c-grey); }
   .foot__meta { justify-content: center; }
   .foot__top { justify-self: center; }
 }
+
+/* ==========================================================================
+   Footer v3: light, quiet, three rows
+   ========================================================================== */
+.foot { display: none; }
+.ft { background: var(--card); border-top: 1px solid var(--card-border); color: var(--c-grey); }
+.ft .container { display: flex; flex-direction: column; }
+.ft a { color: var(--c-navy); transition: color var(--dur-fast); }
+.ft a:hover { color: var(--c-green); }
+.ft__top { display: flex; justify-content: space-between; align-items: center; gap: 24px 48px; flex-wrap: wrap; padding-block: 56px 40px; }
+.ft__brand { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.ft__brand .logo { font-size: 26px; }
+.ft__brand p { font-size: 15px; color: var(--text-muted); max-width: 32ch; }
+.ft__nav { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 28px; }
+.ft__nav a { display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; font-weight: 500; }
+.ft__info { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding-block: 24px; border-top: 1px solid var(--card-border); }
+.ft__contact { font-style: normal; display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 14px; color: var(--text-muted); }
+.ft__contact a { color: var(--c-grey); }
+.ft__contact a:hover { color: var(--c-green); text-decoration: underline; text-underline-offset: 3px; }
+.ft__social { list-style: none; margin: 0; padding: 0; display: flex; gap: 6px; }
+.ft__social a { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; color: var(--c-grey); transition: background-color var(--dur-fast), color var(--dur-fast); }
+.ft__social a:hover { background: var(--c-mint); color: var(--c-green); }
+.ft__social svg { width: 19px; height: 19px; display: block; }
+.ft__legal { display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; flex-wrap: wrap; padding-block: 20px 28px; border-top: 1px solid var(--card-border); font-size: 13px; color: var(--text-muted); }
+.ft__legal ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 24px; }
+.ft__legal a { color: var(--text-muted); display: inline-flex; min-height: 32px; align-items: center; }
+.ft__legal a:hover { color: var(--c-navy); }
+.ft :focus-visible { outline-color: var(--c-navy); }
+@media (max-width: 680px) {
+  .ft__top { flex-direction: column; align-items: flex-start; padding-block: 44px 28px; }
+  .ft__brand { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .ft__contact { flex-direction: column; gap: 6px; }
+}
+.ft__contact a { display: inline-flex; min-height: 24px; align-items: center; }
+
+/* ==========================================================================
+   Why Toothly v3: tinted band + comparison table (no cards)
+   ========================================================================== */
+.why3 { background: linear-gradient(180deg, #eef6f2 0%, #f4f8f6 100%); border-block: 1px solid #dcebe4; }
+.why3__inner { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(40px, 5vw, 80px); align-items: start; }
+.why3__intro { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 110px; }
+.why3__intro .p-18 { color: var(--c-grey); max-width: 42ch; }
+.why3__stats { display: flex; gap: 0; margin: 16px 0 12px; padding: 18px 0; border-block: 1px solid #d3e5dc; }
+.why3__stats > div { flex: 1; display: flex; flex-direction: column-reverse; gap: 2px; padding-inline: 16px; }
+.why3__stats > div:first-child { padding-left: 0; }
+.why3__stats > div + div { border-left: 1px solid #d3e5dc; }
+.why3__stats dt { font-size: 13px; color: var(--text-muted); }
+.why3__stats dd { margin: 0; font-family: var(--font-display); font-size: clamp(28px, 2.6vw, 36px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.1; color: var(--c-navy); font-variant-numeric: tabular-nums; }
+.why3__stats dd small { font-size: 16px; color: var(--c-grey); letter-spacing: 0; }
+.why3__intro .btn { align-self: flex-start; }
+
+.cmp { background: var(--card); border: 1px solid #d3e5dc; border-radius: var(--radius-lg); box-shadow: 0 24px 50px -40px rgba(11,125,100,.55); overflow: hidden; }
+.cmp__table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.cmp__table th, .cmp__table td { text-align: left; vertical-align: top; padding: 20px 22px; font-size: 15px; line-height: 1.5; }
+.cmp__table thead th, .cmp__table thead td { padding-block: 18px; font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--text-muted); border-bottom: 1px solid var(--card-border); }
+.cmp__table thead td { width: 22%; }
+.cmp__table tbody th { font-family: var(--font-display); font-weight: 500; font-size: 18px; color: var(--c-navy); }
+.cmp__table tbody tr + tr > * { border-top: 1px solid var(--card-border); }
+.cmp__table .cmp__us { background: #f3faf7; color: var(--c-navy); }
+.cmp__table thead .cmp__us { color: var(--c-green); background: #e6f4ee; }
+.cmp__table .cmp__them { color: var(--text-muted); }
+.cmp__brand { display: inline-flex; align-items: center; gap: 8px; }
+.cmp__brand img { filter: none; }
+.cmp__mark { float: left; position: relative; width: 20px; height: 20px; border-radius: 50%; margin: 1px 10px 0 0; }
+.cmp__mark--yes { background: var(--c-green); }
+.cmp__mark--yes::after { content: ""; position: absolute; left: 6px; top: 6.5px; width: 7px; height: 4px; border-left: 2px solid #fff; border-bottom: 2px solid #fff; transform: rotate(-45deg); }
+.cmp__mark--no { background: #e8ece9; }
+.cmp__mark--no::after { content: ""; position: absolute; left: 6px; top: 9px; width: 8px; height: 2px; border-radius: 2px; background: #7a8a85; }
+.cmp__table td { overflow-wrap: anywhere; }
+.cmp__table td > .cmp__mark + * { display: block; }
+.cmp__table tbody tr { transition: background-color var(--dur); }
+.cmp__table tbody tr:hover .cmp__us { background: #e9f6f0; }
+
+@media (max-width: 1024px) {
+  .why3__inner { grid-template-columns: minmax(0, 1fr); }
+  .why3__intro { position: static; }
+}
+@media (max-width: 680px) {
+  .cmp__table, .cmp__table tbody, .cmp__table tr, .cmp__table th, .cmp__table td { display: block; width: auto; }
+  .cmp__table thead { display: none; }
+  .cmp__table tbody tr { padding: 18px 18px 20px; }
+  .cmp__table tbody tr + tr { border-top: 1px solid var(--card-border); }
+  .cmp__table tbody tr + tr > * { border-top: 0; }
+  .cmp__table tbody th { padding: 0 0 10px; }
+  .cmp__table td { padding: 10px 12px; border-radius: 12px; }
+  .cmp__table td.cmp__them { background: none; margin-top: 4px; }
+  .cmp__table td.cmp__us::before { content: "At Toothly"; display: block; margin-bottom: 4px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--c-green); }
+  .cmp__table td.cmp__them::before { content: "What you may be used to"; display: block; margin-bottom: 4px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--text-muted); }
+  .why3__stats > div { padding-inline: 10px; }
+}
+.cmp__table thead .cmp__us { color: #075c4a; }
+
+/* Nav v4: hover = faint ghost highlight; selected = white pill (moves on click) */
+@media (min-width: 1025px) {
+  .nav__ghost {
+    position: absolute; z-index: -1; top: 4px; bottom: 4px; left: 0; width: 0; border-radius: var(--pill);
+    background: rgba(18, 36, 31, 0.07); opacity: 0; scale: 0.9;
+    transition: opacity 220ms ease, scale 260ms cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 200ms ease;
+    will-change: transform, width;
+  }
+  .nav__ghost.is-on { opacity: 1; scale: 1; }
+  .nav__ghost.is-focus { box-shadow: inset 0 0 0 2px var(--c-navy); }
+  .nav__pill { z-index: -1; }
+  .nav.has-pill > .nav__menu .nav__link.is-hover { color: var(--c-navy); }
+  .nav.has-pill > .nav__menu .nav__link.is-target { color: var(--c-navy); }
+}
+@media (prefers-reduced-motion: reduce) { .nav__ghost { transition: opacity 120ms ease !important; scale: 1; } }
