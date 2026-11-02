@@ -11,7 +11,9 @@
 
 
 
-  /* ---------- Desktop nav: pill glides to hovered / focused item ---------- */
+  /* ---------- Desktop nav: spring-driven pill ----------
+     A small damped spring (no CSS transitions) so the pill keeps its velocity
+     when the target changes mid-move. Slightly under-damped: about 1% overshoot. */
   var deskMenu = $(".nav > .nav__menu");
   if (deskMenu) {
     var navEl = deskMenu.parentElement;
@@ -20,17 +22,41 @@
     deskMenu.appendChild(pill);
     var links = $$(".nav__link", deskMenu);
     var current = $(".nav__link[aria-current=page]", deskMenu);
-    function moveTo(link) {
+    var K = 420, C = 31;                       // stiffness, damping (critical ~41): gentle ~2% overshoot
+    var st = { x: 0, w: 0, vx: 0, vw: 0, tx: 0, tw: 0 }, raf = null, last = 0, placed = false;
+    var leaveTimer = null, keyboard = false, target = null;
+
+    function measure(link) {
+      var m = deskMenu.getBoundingClientRect(), r = link.getBoundingClientRect();
+      return { x: r.left - m.left - deskMenu.clientLeft, w: r.width };
+    }
+    function paint() {
+      pill.style.width = st.w.toFixed(2) + "px";
+      pill.style.transform = "translate3d(" + st.x.toFixed(2) + "px,0,0)";
+    }
+    function step(t) {
+      var dt = Math.min(0.032, (t - last) / 1000 || 0.016); last = t;
+      var ax = K * (st.tx - st.x) - C * st.vx, aw = K * (st.tw - st.w) - C * st.vw;
+      st.vx += ax * dt; st.vw += aw * dt; st.x += st.vx * dt; st.w += st.vw * dt;
+      paint();
+      var done = Math.abs(st.tx - st.x) < 0.1 && Math.abs(st.vx) < 0.1 && Math.abs(st.tw - st.w) < 0.1 && Math.abs(st.vw) < 0.1;
+      if (done) { st.x = st.tx; st.w = st.tw; st.vx = st.vw = 0; paint(); raf = null; }
+      else raf = requestAnimationFrame(step);
+    }
+    function moveTo(link, instant) {
+      target = link;
       links.forEach(function (l) { l.classList.toggle("is-target", l === link); });
       if (!link) { pill.classList.remove("is-ready"); return; }
-      var m = deskMenu.getBoundingClientRect(), r = link.getBoundingClientRect();
-      pill.style.width = r.width + "px";
-      pill.style.transform = "translateX(" + (r.left - m.left - deskMenu.clientLeft) + "px)";
+      var g = measure(link); st.tx = g.x; st.tw = g.w;
+      if (instant || !placed || reduceMotion.matches) {
+        st.x = st.tx; st.w = st.tw; st.vx = st.vw = 0; paint(); placed = true;
+        if (raf) { cancelAnimationFrame(raf); raf = null; }
+      } else if (!raf) { last = performance.now(); raf = requestAnimationFrame(step); }
       pill.classList.add("is-ready");
     }
-    var leaveTimer = null, keyboard = false;
-    function reset() { clearTimeout(leaveTimer); pill.classList.remove("is-focus"); moveTo(current); }
-    function later() { clearTimeout(leaveTimer); leaveTimer = setTimeout(reset, 140); }
+    function reset(instant) { clearTimeout(leaveTimer); pill.classList.remove("is-focus"); moveTo(current, instant); }
+    function later() { clearTimeout(leaveTimer); leaveTimer = setTimeout(function () { reset(false); }, 160); }
+
     navEl.classList.add("has-pill");
     document.addEventListener("keydown", function (e) { if (e.key === "Tab") keyboard = true; });
     document.addEventListener("pointerdown", function () { keyboard = false; });
@@ -45,28 +71,9 @@
     });
     deskMenu.addEventListener("pointerleave", function () { pill.classList.remove("is-pressed"); later(); });
     deskMenu.addEventListener("focusout", function (e) { if (!deskMenu.contains(e.relatedTarget)) later(); });
-    window.addEventListener("resize", function () { pill.style.transition = "none"; reset(); void pill.offsetWidth; pill.style.transition = ""; });
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () {
-      pill.style.transition = "none"; reset(); void pill.offsetWidth; pill.style.transition = "";
-    });
-    pill.style.transition = "none"; reset(); void pill.offsetWidth; pill.style.transition = "";
-  }
-
-
-  /* ---------- Footer: live open / closed status (clinic time, San Francisco) ---------- */
-  var status = $("[data-open-status]");
-  if (status) {
-    try {
-      var parts = new Intl.DateTimeFormat("en-US", { timeZone: "America/Los_Angeles", weekday: "short", hour: "numeric", minute: "numeric", hour12: false }).formatToParts(new Date());
-      var get = function (t) { var p = parts.find(function (x) { return x.type === t; }); return p ? p.value : ""; };
-      var dayIdx = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(get("weekday"));
-      var mins = (Number(get("hour")) % 24) * 60 + Number(get("minute"));
-      var close = dayIdx === 6 ? 15 * 60 : 18 * 60;
-      var open = dayIdx >= 1 && mins >= 9 * 60 && mins < close;
-      var txt = $("[data-open-text]", status);
-      if (open) { status.classList.add("is-open"); txt.textContent = "Open now, until " + (close === 900 ? "3 PM" : "6 PM"); }
-      else { txt.textContent = (dayIdx === 6 && mins >= close) || dayIdx === 0 ? "Closed now. Opens Monday 9 AM" : "Closed now. Opens 9 AM"; }
-    } catch (e) {}
+    window.addEventListener("resize", function () { moveTo(target || current, true); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { moveTo(target || current, true); });
+    reset(true);
   }
 
   /* ---------- Sticky header ---------- */
@@ -393,7 +400,7 @@
     var billing = params.get("billing");
     var msgBox = $("textarea[name=message]");
     if (billing && msgBox && !msgBox.value) {
-      msgBox.value = "Hi, I’d like to join the " + params.get("subject") + ", billed " + billing + ". ";
+      msgBox.value = "Hi, I’d like to join the Toothly membership, billed " + billing + ". ";
     }
   }
 

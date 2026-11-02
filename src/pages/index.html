@@ -3,7 +3,7 @@
     <section class="hero under-header" aria-labelledby="hero-title">
       <div class="container hero__inner">
         <div class="hero__intro">
-          <p class="proof reveal"><span class="proof__faces" aria-hidden="true"><img src="assets/img/avatar-amanda.webp" alt="" width="96" height="95"><img src="assets/img/avatar-daniel.webp" alt="" width="96" height="96"><img src="assets/img/avatar-julia.webp" alt="" width="96" height="125"></span><span>Trusted by 10,000+ San Francisco patients</span></p>
+          <p class="proof reveal"><span class="proof__faces" aria-hidden="true"><i class="t1">AL</i><i class="t2">DW</i><i class="t3">JM</i></span><span>Trusted by 10,000+ San Francisco patients</span></p>
           <h1 class="h-56 hero__title reveal" id="hero-title" style="--i:1">Unhurried dental care <span class="tone">for the whole family</span></h1>
           <p class="p-18 hero__lede reveal" style="--i:2">Cleanings, fillings, braces and emergencies in one San Francisco clinic. You get a written price before we start, and you can ask us to stop at any time.</p>
           <div class="hero__actions reveal" style="--i:3">
@@ -115,7 +115,7 @@
         <figure class="why2__media reveal">
           <img src="assets/img/why-doctor.webp" alt="Smiling dentist in a white coat, arms crossed, in a treatment room" width="900" height="1018" loading="lazy">
           <figcaption class="why2__rating">
-            <span class="proof__faces" aria-hidden="true"><img src="assets/img/avatar-amanda.webp" alt="" width="96" height="95"><img src="assets/img/avatar-daniel.webp" alt="" width="96" height="96"><img src="assets/img/avatar-julia.webp" alt="" width="96" height="125"></span>
+            <span class="proof__faces" aria-hidden="true"><i class="t1">AL</i><i class="t2">DW</i><i class="t3">JM</i></span>
             <span><strong>4.9 out of 5</strong><span>Average patient rating</span></span>
           </figcaption>
         </figure>
@@ -224,43 +224,37 @@
     </section>
 
     <!-- Pricing -->
-    <section class="container section" aria-labelledby="price-title" data-pricing>
+    <section class="container section" aria-labelledby="price-title">
       <div class="headline headline--center reveal">
-        <p class="eyebrow">Pricing</p>
-          <h2 class="h-40" id="price-title">Membership plans <span class="tone">without the fine print</span></h2>
-        <p class="p-18">No dental insurance? One fixed price covers your routine care. Cancel anytime.</p>
+        <p class="eyebrow">Membership</p>
+        <h2 class="h-40" id="price-title">One membership, <span class="tone">billed your way</span></h2>
+        <p class="p-18">No dental insurance? The same routine care in every option. Only the billing changes. Cancel anytime.</p>
       </div>
-      <fieldset class="billing reveal">
-        <legend class="sr-only">Billing period</legend>
-        <label><input type="radio" name="billing" value="weekly"><span>Weekly</span></label>
-        <label><input type="radio" name="billing" value="monthly" checked><span>Monthly</span></label>
-        <label><input type="radio" name="billing" value="yearly"><span>Yearly <em>2 months free</em></span></label>
-      </fieldset>
       <ul class="pricing" role="list" data-stagger>
-        <li class="plan reveal" data-plan="Basic Care" data-weekly="12" data-monthly="49" data-yearly="490">
-          <h3 class="h-24">Basic Care</h3>
-          <p class="plan__desc">Checkups and cleanings to stay ahead of problems</p>
-          <p class="plan__price"><strong data-amount>$49</strong><span data-per>/month</span></p>
-          <p class="plan__note" data-note></p>
-          <ul class="plan__list" role="list"><li>2 checkups and cleanings a year</li><li>X-rays included</li><li>1 fluoride treatment a year</li><li>Text reminders before visits</li></ul>
-          <a class="btn btn--block btn--ghost" data-choose href="contact.html?subject=Basic%20Care%20plan#message">Choose Basic Care</a>
+        <li class="plan reveal">
+          <h3 class="h-24">Weekly</h3>
+          <p class="plan__desc">Smallest payment, most flexibility</p>
+          <p class="plan__price"><strong>$12</strong><span>/week</span></p>
+          <p class="plan__note">Works out to about $52 a month</p>
+          <ul class="plan__list" role="list"><li>2 checkups and cleanings a year</li><li>X-rays included</li><li>1 emergency visit a year</li><li>10% off any other treatment</li></ul>
+          <a class="btn btn--block btn--ghost" href="contact.html?subject=Toothly%20Membership%20plan&amp;billing=weekly#message" aria-label="Choose weekly billing, $12 per week">Choose Weekly</a>
         </li>
-        <li class="plan reveal" data-plan="Smile Plus" data-weekly="23" data-monthly="99" data-yearly="990">
-          <h3 class="h-24">Smile Plus</h3>
-          <p class="plan__desc">Basic Care, plus whitening and an emergency visit</p>
-          <p class="plan__price"><strong data-amount>$99</strong><span data-per>/month</span></p>
-          <p class="plan__note" data-note></p>
-          <ul class="plan__list" role="list"><li>Everything in Basic Care</li><li>Whitening once a year</li><li>1 emergency visit a year</li><li>10% off other treatment</li></ul>
-          <a class="btn btn--block btn--ghost" data-choose href="contact.html?subject=Smile%20Plus%20plan#message">Choose Smile Plus</a>
+        <li class="plan reveal">
+          <h3 class="h-24">Monthly</h3>
+          <p class="plan__desc">The option most patients choose</p>
+          <p class="plan__price"><strong>$49</strong><span>/month</span></p>
+          <p class="plan__note">Billed on the same date each month</p>
+          <ul class="plan__list" role="list"><li>2 checkups and cleanings a year</li><li>X-rays included</li><li>1 emergency visit a year</li><li>10% off any other treatment</li></ul>
+          <a class="btn btn--block btn--ghost" href="contact.html?subject=Toothly%20Membership%20plan&amp;billing=monthly#message" aria-label="Choose monthly billing, $49 per month">Choose Monthly</a>
         </li>
-        <li class="plan plan--featured reveal" data-plan="Premium Care" data-weekly="42" data-monthly="179" data-yearly="1790">
-          <p class="plan__tab">Most complete</p>
-          <h3 class="h-24">Premium Care</h3>
-          <p class="plan__desc">Full cover, with cosmetic work included</p>
-          <p class="plan__price"><strong data-amount>$179</strong><span data-per>/month</span></p>
-          <p class="plan__note" data-note></p>
-          <ul class="plan__list" role="list"><li>Everything in Smile Plus</li><li>4 cleanings a year</li><li>Unlimited emergency visits</li><li>20% off cosmetic treatment</li></ul>
-          <a class="btn btn--block" data-choose href="contact.html?subject=Premium%20Care%20plan#message">Choose Premium Care</a>
+        <li class="plan plan--featured reveal">
+          <p class="plan__tab">Best value</p>
+          <h3 class="h-24">Yearly</h3>
+          <p class="plan__desc">Pay once and save two months</p>
+          <p class="plan__price"><strong>$490</strong><span>/year</span></p>
+          <p class="plan__note">Works out to $40.83 a month. You save $98.</p>
+          <ul class="plan__list" role="list"><li>2 checkups and cleanings a year</li><li>X-rays included</li><li>1 emergency visit a year</li><li>10% off any other treatment</li></ul>
+          <a class="btn btn--block" href="contact.html?subject=Toothly%20Membership%20plan&amp;billing=yearly#message" aria-label="Choose yearly billing, $490 per year">Choose Yearly</a>
         </li>
       </ul>
     </section>
@@ -268,7 +262,7 @@
     <!-- Payments -->
     <section class="container pay" aria-labelledby="pay-title">
       <p class="pay__label" id="pay-title">We file your insurance claim. Pay your share however suits you.</p>
-      <ul class="pay__list reveal" role="list"><li><span class="pay__logo" style="--src:url(../assets/logos/visa.svg)" aria-hidden="true"></span><span class="pay__name">Visa</span></li><li><span class="pay__logo" style="--src:url(../assets/logos/mastercard.svg)" aria-hidden="true"></span><span class="pay__name">Mastercard</span></li><li><span class="pay__logo" style="--src:url(../assets/logos/americanexpress.svg)" aria-hidden="true"></span><span class="pay__name">American Express</span></li><li><span class="pay__logo" style="--src:url(../assets/logos/discover.svg)" aria-hidden="true"></span><span class="pay__name">Discover</span></li><li><span class="pay__logo" style="--src:url(../assets/logos/applepay.svg)" aria-hidden="true"></span><span class="pay__name">Apple Pay</span></li><li><span class="pay__logo" style="--src:url(../assets/logos/googlepay.svg)" aria-hidden="true"></span><span class="pay__name">Google Pay</span></li><li><span class="pay__logo" style="--src:url(../assets/logos/paypal.svg)" aria-hidden="true"></span><span class="pay__name">PayPal</span></li><li><span class="pay__logo" style="--src:url(../assets/logos/klarna.svg)" aria-hidden="true"></span><span class="pay__name">Klarna</span></li></ul>
+      <ul class="pay__list reveal" role="list"><li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2.5"/><path d="M3 10h18M7 14.5h3"/></svg>Credit and debit cards</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 17.5h2"/></svg>Apple Pay and Google Pay</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 5 6v5.5c0 4.2 3 7.6 7 9 4-1.4 7-4.8 7-9V6l-7-2.5Z"/><path d="m9 12 2 2 4-4"/></svg>HSA and FSA cards</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14.5" rx="2.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4M9 14.5h6"/></svg>Monthly payment plans</li></ul>
     </section>
 
     <!-- Reviews -->
@@ -289,27 +283,27 @@
           <li class="rv reveal">
             <div class="rv__top"><div class="stars" role="img" aria-label="Rated 5 out of 5"><img src="assets/icons/star.svg" alt="" width="18" height="18"><img src="assets/icons/star.svg" alt="" width="18" height="18"><img src="assets/icons/star.svg" alt="" width="18" height="18"><img src="assets/icons/star.svg" alt="" width="18" height="18"><img src="assets/icons/star.svg" alt="" width="18" height="18"></div><span class="rv__tag">First checkup in six years</span></div>
             <blockquote class="rv__quote"><p>I hadn’t seen a dentist in six years because I was embarrassed. Nobody lectured me. They showed me what needed doing, in what order, and what it would cost.</p></blockquote>
-            <div class="rv__who"><span class="avatar"><img src="assets/img/avatar-amanda.webp" alt="" width="96" height="95" loading="lazy"></span><p class="h-18">Amanda Lewis</p></div>
+            <div class="rv__who"><span class="avatar avatar--i t1" aria-hidden="true">AL</span><p class="h-18">Amanda Lewis</p></div>
           </li>
           <li class="rv reveal">
             <div class="rv__top"><div class="stars" role="img" aria-label="Rated 5 out of 5"><img src="assets/icons/star.svg" alt="" width="18" height="18"><img src="assets/icons/star.svg" alt="" width="18" height="18"><img src="assets/icons/star.svg" alt="" width="18" height="18"><img src="assets/icons/star.svg" alt="" width="18" height="18"><img src="assets/icons/star.svg" alt="" width="18" height="18"></div><span class="rv__tag">Root canal</span></div>
             <blockquote class="rv__quote"><p>Root canal on Tuesday, back at work on Wednesday. My dentist told me what he was doing at each step, which helped more than the numbing did.</p></blockquote>
-            <div class="rv__who"><span class="avatar"><img src="assets/img/avatar-daniel.webp" alt="" width="96" height="96" loading="lazy"></span><p class="h-18">Daniel Wright</p></div>
+            <div class="rv__who"><span class="avatar avatar--i t2" aria-hidden="true">DW</span><p class="h-18">Daniel Wright</p></div>
           </li>
           <li class="rv reveal">
             <div class="rv__top"><div class="stars" role="img" aria-label="Rated 5 out of 5"><img src="assets/icons/star.svg" alt="" width="18" height="18"><img src="assets/icons/star.svg" alt="" width="18" height="18"><img src="assets/icons/star.svg" alt="" width="18" height="18"><img src="assets/icons/star.svg" alt="" width="18" height="18"><img src="assets/icons/star.svg" alt="" width="18" height="18"></div><span class="rv__tag">Cleaning</span></div>
             <blockquote class="rv__quote"><p>They text the day before, and the appointment actually starts on time. Small thing, but I’ve never had that at a dentist before.</p></blockquote>
-            <div class="rv__who"><span class="avatar"><img src="assets/img/avatar-julia.webp" alt="" width="96" height="125" loading="lazy"></span><p class="h-18">Julia Monroe</p></div>
+            <div class="rv__who"><span class="avatar avatar--i t3" aria-hidden="true">JM</span><p class="h-18">Julia Monroe</p></div>
           </li>
           <li class="rv reveal">
             <div class="rv__top"><div class="stars" role="img" aria-label="Rated 5 out of 5"><img src="assets/icons/star.svg" alt="" width="18" height="18"><img src="assets/icons/star.svg" alt="" width="18" height="18"><img src="assets/icons/star.svg" alt="" width="18" height="18"><img src="assets/icons/star.svg" alt="" width="18" height="18"><img src="assets/icons/star.svg" alt="" width="18" height="18"></div><span class="rv__tag">Child’s first visit</span></div>
             <blockquote class="rv__quote"><p>My son was dreading his first visit. They let him hold the mirror and count his own teeth. On the way home he asked when he could go back.</p></blockquote>
-            <div class="rv__who"><span class="avatar"><img src="assets/img/avatar-laura.webp" alt="" width="96" height="144" loading="lazy"></span><p class="h-18">Laura Thompson</p></div>
+            <div class="rv__who"><span class="avatar avatar--i t2" aria-hidden="true">LT</span><p class="h-18">Laura Thompson</p></div>
           </li>
           <li class="rv reveal">
             <div class="rv__top"><div class="stars" role="img" aria-label="Rated 5 out of 5"><img src="assets/icons/star.svg" alt="" width="18" height="18"><img src="assets/icons/star.svg" alt="" width="18" height="18"><img src="assets/icons/star.svg" alt="" width="18" height="18"><img src="assets/icons/star.svg" alt="" width="18" height="18"><img src="assets/icons/star.svg" alt="" width="18" height="18"></div><span class="rv__tag">Pediatric care</span></div>
             <blockquote class="rv__quote"><p>Our daughter used to cry in the car on the way to the dentist. Three visits in, she walks through the door by herself.</p></blockquote>
-            <div class="rv__who"><span class="avatar"><img src="assets/img/avatar-henry.webp" alt="" width="96" height="144" loading="lazy"></span><p class="h-18">Henry Delgado</p></div>
+            <div class="rv__who"><span class="avatar avatar--i t1" aria-hidden="true">HD</span><p class="h-18">Henry Delgado</p></div>
           </li>
         </ul>
       </div>

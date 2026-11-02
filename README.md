@@ -64,5 +64,7 @@ Audit: axe-core 4.10 (WCAG 2.2 AA + best practice) on all 5 pages, 0 violations 
 - Blog posts, Privacy Policy and Terms are placeholder links.
 - Copy was rewritten for a plain, specific voice. Plan prices, plan benefits, the free first exam,
   same-day emergency slots and insurance claims are placeholders: confirm them with the clinic.
-- Pricing shows weekly, monthly and yearly billing. Weekly = monthly x 12 / 52 rounded up;
-  yearly = 10 x monthly (2 months free). Values live in `data-weekly/monthly/yearly` on each `.plan`.
+- Pricing is one membership shown as three billing cards: Weekly $12, Monthly $49, Yearly $490
+  (2 months free). Prices are placeholders to confirm with the clinic.
+- Team portraits were generated with Figma AI (file "Toothly Team Portraits"). Replace them with
+  photos of the real dentists before launch. Reviews use initials, not photos.
