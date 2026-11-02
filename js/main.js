@@ -117,6 +117,40 @@
     }
   });
 
+
+  /* ---------- Pricing: weekly / monthly / yearly ---------- */
+  $$("[data-pricing]").forEach(function (section) {
+    var PER = { weekly: "/week", monthly: "/month", yearly: "/year" };
+    var plans = $$(".plan[data-plan]", section);
+    function money(n) { return "$" + Number(n).toLocaleString("en-US"); }
+    function render(period, animate) {
+      plans.forEach(function (plan) {
+        var amount = plan.getAttribute("data-" + period);
+        var monthly = Number(plan.getAttribute("data-monthly"));
+        var note = period === "weekly" ? "Billed every week. Cancel anytime."
+          : period === "yearly" ? "Billed once a year. You save " + money(monthly * 12 - Number(amount)) + "."
+          : "Billed monthly. Cancel anytime.";
+        function apply() {
+          $("[data-amount]", plan).textContent = money(amount);
+          $("[data-per]", plan).textContent = PER[period];
+          $("[data-note]", plan).textContent = note;
+          var name = plan.getAttribute("data-plan");
+          var btn = $("[data-choose]", plan);
+          btn.setAttribute("aria-label", "Choose " + name + ", " + money(amount) + " per " + period.replace("ly", ""));
+          btn.href = "contact.html?subject=" + encodeURIComponent(name + " plan") + "&billing=" + period + "#message";
+          plan.classList.remove("is-swapping");
+        }
+        if (animate && !reduceMotion.matches) { plan.classList.add("is-swapping"); setTimeout(apply, 180); }
+        else apply();
+      });
+    }
+    $$("input[name=billing]", section).forEach(function (r) {
+      r.addEventListener("change", function () { if (r.checked) render(r.value, true); });
+    });
+    var checked = $("input[name=billing]:checked", section);
+    render(checked ? checked.value : "monthly", false);
+  });
+
   /* ---------- FAQ accordion ---------- */
   $$(".faq__q").forEach(function (btn) {
     btn.addEventListener("click", function () {
@@ -298,6 +332,11 @@
   if (subj && params.get("subject")) {
     var opt = $$("option", subj).find(function (o) { return o.value === params.get("subject"); });
     if (opt) subj.value = opt.value;
+    var billing = params.get("billing");
+    var msgBox = $("textarea[name=message]");
+    if (billing && msgBox && !msgBox.value) {
+      msgBox.value = "Hi, I’d like to join the " + params.get("subject") + ", billed " + billing + ". ";
+    }
   }
 
   $$("form[data-validate]").forEach(function (form) {
@@ -366,7 +405,7 @@
       }
       input.removeAttribute("aria-invalid");
       msg.className = "subscribe__msg is-success";
-      msg.textContent = "Thanks. Check your inbox to confirm your subscription.";
+      msg.textContent = "You’re in. Check your inbox for a confirmation email.";
       form.reset();
     });
   });

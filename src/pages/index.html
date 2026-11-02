@@ -1,18 +1,21 @@
-<!--meta title="Toothly Dental Clinic | Brighten Your Smile" description="Friendly, stress-free dental care in San Francisco. General, cosmetic, pediatric, orthodontic and emergency dentistry. Book your appointment online." active="home" body="page-home" -->
+<!--meta title="Toothly Dental Clinic, San Francisco | Unhurried Care for the Whole Family" description="Checkups, fillings, braces, implants and same-day emergency care in San Francisco. Written prices before treatment. Book online in about a minute." active="home" body="page-home" -->
     <!-- Hero + booking -->
     <section class="hero under-header" aria-labelledby="hero-title">
       <div class="container hero__inner">
         <div class="hero__top">
-          <h1 class="h-56 hero__title reveal" id="hero-title">Brighten Your Smile with Toothly</h1>
+          <h1 class="h-56 hero__title reveal" id="hero-title">Unhurried dental care for the whole family</h1>
           <div class="hero__right reveal" style="--i:1">
-            <p class="p-18">Discover a dental experience that’s friendly, stress-free, and focused entirely on you</p>
-            <a class="btn btn--outline" href="#book">Book Your Appointment Today</a>
+            <p class="p-18">Cleanings, fillings, braces and emergencies in one San Francisco clinic. You get a written price before we start, and you can ask us to stop at any time.</p>
+            <a class="btn btn--outline" href="#book">Book a Visit</a>
           </div>
         </div>
         <div class="hero__booking">
           <div class="booking reveal reveal--left" id="book">
-            <h2 class="h-24">Book Appointment Today</h2>
-            <form class="form" data-validate novalidate data-success="Thanks{name}! Your request is in. We’ll confirm your appointment by email within 1 business day.">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h2 class="h-24">Book your visit</h2>
+              <p class="p-16">Takes about a minute. We confirm by email within one business day.</p>
+            </div>
+            <form class="form" data-validate novalidate data-success="Thanks{name}. Your request is in. We’ll email you within one business day to confirm the time.">
               <div class="field">
                 <input class="field__control" id="b-name" name="name" type="text" autocomplete="name" placeholder=" " required data-label="Full name" aria-describedby="b-name-err">
                 <label class="field__label" for="b-name">Full Name</label>
@@ -25,7 +28,7 @@
               </div>
               <div class="field field--static">
                 <input class="field__control" id="b-date" name="date" type="date" required data-booking-date data-label="Date" aria-describedby="b-date-err">
-                <label class="field__label" for="b-date">Choose Date</label>
+                <label class="field__label" for="b-date">Preferred Date</label>
                 <img class="field__icon" src="assets/icons/calendar.svg" alt="" width="18" height="18">
                 <p class="field__error" id="b-date-err"></p>
               </div>
@@ -33,19 +36,19 @@
                 <select class="field__control" id="b-time" name="time" required data-booking-time data-label="Time" aria-describedby="b-time-err">
                   <option value="">Select a time</option>
                 </select>
-                <label class="field__label" for="b-time">Choose Time</label>
+                <label class="field__label" for="b-time">Preferred Time</label>
                 <img class="field__icon" src="assets/icons/caret-down.svg" alt="" width="18" height="18">
                 <p class="field__error" id="b-time-err"></p>
               </div>
               <div class="form-status" role="status" aria-live="polite" tabindex="-1"></div>
-              <div><button class="btn" type="submit">Submit</button></div>
+              <div><button class="btn" type="submit">Request Appointment</button></div>
             </form>
           </div>
           <div class="hero__media reveal reveal--zoom" style="--i:1">
-            <img src="assets/img/hero.webp" alt="Smiling young patient in a dental chair while a dentist examines her teeth" width="1500" height="1000" fetchpriority="high">
+            <img src="assets/img/hero.webp" alt="Smiling young patient in a dental chair while a dentist checks her teeth" width="1500" height="1000" fetchpriority="high">
             <div class="hero__badge" aria-hidden="true">
               <span class="hero__badge-icon"><svg width="24" height="24"><use href="#i-calendar-check"/></svg></span>
-              <div><strong>Same-week visits</strong><span>Mon to Sat, 9 AM start</span></div>
+              <div><strong>Open this week</strong><span>Mon to Sat, from 9 AM</span></div>
             </div>
           </div>
         </div>
@@ -56,41 +59,41 @@
     <section class="container section stack-80" aria-labelledby="services-title">
       <div class="section-head">
         <div class="headline reveal">
-          <h2 class="h-40" id="services-title">Smile Solutions for Every Need</h2>
-          <p class="p-18">Whether it’s a checkup or a full makeover, we’ve got you covered</p>
+          <h2 class="h-40" id="services-title">What we can help with</h2>
+          <p class="p-18">From a routine cleaning to a chipped tooth that can’t wait until next week</p>
         </div>
-        <a class="btn btn--outline reveal" href="services.html">Explore All Services</a>
+        <a class="btn btn--outline reveal" href="services.html">See All Services</a>
       </div>
       <ul class="grid-3" role="list" data-stagger>
         <li class="svc-card reveal">
           <img class="svc-card__deco" src="assets/icons/deco-01.svg" alt="" width="169" height="169">
           <span class="svc-card__icon"><img src="assets/icons/dental-01.svg" alt="" width="24" height="24"></span>
-          <div class="svc-card__body"><h3 class="h-24"><a class="svc-card__link" href="service-details.html?service=general">General Dentistry</a></h3><p>Preventive care and routine checkups</p></div>
+          <div class="svc-card__body"><h3 class="h-24"><a class="svc-card__link" href="service-details.html?service=general">General Dentistry</a></h3><p>Cleanings, exams and fillings that keep small problems small</p></div>
         </li>
         <li class="svc-card reveal">
           <img class="svc-card__deco" src="assets/icons/deco-02.svg" alt="" width="169" height="169">
           <span class="svc-card__icon"><img src="assets/icons/dental-02.svg" alt="" width="24" height="24"></span>
-          <div class="svc-card__body"><h3 class="h-24"><a class="svc-card__link" href="service-details.html?service=cosmetic">Cosmetic Dentistry</a></h3><p>Smile makeovers with whitening, veneers &amp; more</p></div>
+          <div class="svc-card__body"><h3 class="h-24"><a class="svc-card__link" href="service-details.html?service=cosmetic">Cosmetic Dentistry</a></h3><p>Whitening, veneers and bonding, with a preview before we begin</p></div>
         </li>
         <li class="svc-card reveal">
           <img class="svc-card__deco" src="assets/icons/deco-03.svg" alt="" width="169" height="169">
           <span class="svc-card__icon"><img src="assets/icons/dental-03.svg" alt="" width="24" height="24"></span>
-          <div class="svc-card__body"><h3 class="h-24"><a class="svc-card__link" href="service-details.html?service=orthodontics">Orthodontics</a></h3><p>Braces and Invisalign for a perfect alignment</p></div>
+          <div class="svc-card__body"><h3 class="h-24"><a class="svc-card__link" href="service-details.html?service=orthodontics">Orthodontics</a></h3><p>Clear aligners and braces for teens and adults</p></div>
         </li>
         <li class="svc-card svc-card--photo on-dark reveal">
           <div class="svc-card__bg"><img src="assets/img/service-pediatric.webp" alt="" width="1600" height="1066" loading="lazy"></div>
           <span class="svc-card__icon"><img src="assets/icons/dental-04.svg" alt="" width="24" height="24"></span>
-          <div class="svc-card__body"><h3 class="h-24"><a class="svc-card__link" href="service-details.html">Pediatric Dentistry</a></h3><p>Gentle, friendly care for children of all ages</p></div>
+          <div class="svc-card__body"><h3 class="h-24"><a class="svc-card__link" href="service-details.html">Pediatric Dentistry</a></h3><p>Patient, playful visits from the first tooth onward</p></div>
         </li>
         <li class="svc-card reveal">
           <img class="svc-card__deco" src="assets/icons/deco-05.svg" alt="" width="169" height="169">
           <span class="svc-card__icon"><img src="assets/icons/dental-05.svg" alt="" width="24" height="24"></span>
-          <div class="svc-card__body"><h3 class="h-24"><a class="svc-card__link" href="service-details.html?service=implants">Dental Implants</a></h3><p>Permanent tooth replacement solutions</p></div>
+          <div class="svc-card__body"><h3 class="h-24"><a class="svc-card__link" href="service-details.html?service=implants">Dental Implants</a></h3><p>A fixed replacement that looks and chews like your own tooth</p></div>
         </li>
         <li class="svc-card reveal">
           <img class="svc-card__deco" src="assets/icons/deco-06.svg" alt="" width="169" height="169">
           <span class="svc-card__icon"><img src="assets/icons/dental-06.svg" alt="" width="24" height="24"></span>
-          <div class="svc-card__body"><h3 class="h-24"><a class="svc-card__link" href="service-details.html?service=emergency">Emergency Dental Care</a></h3><p>Fast, dependable relief when you need it most</p></div>
+          <div class="svc-card__body"><h3 class="h-24"><a class="svc-card__link" href="service-details.html?service=emergency">Emergency Dental Care</a></h3><p>Same-day slots for pain, swelling and broken teeth</p></div>
         </li>
       </ul>
     </section>
@@ -100,24 +103,24 @@
       <div class="why">
         <div>
           <div class="headline reveal">
-            <h2 class="h-40" id="why-title">Why Choose Toothly</h2>
-            <p class="p-18">Trusted by families, backed by technology</p>
+            <h2 class="h-40" id="why-title">What you can count on</h2>
+            <p class="p-18">Four things we do at every visit, without being asked</p>
           </div>
           <ul class="why__list" role="list" data-stagger>
-            <li class="why__item reveal"><img src="assets/icons/check.svg" alt="" width="24" height="24"><span>Patient-first approach with tailored treatments</span></li>
-            <li class="why__item reveal"><img src="assets/icons/check.svg" alt="" width="24" height="24"><span>Certified professionals and specialists</span></li>
-            <li class="why__item reveal"><img src="assets/icons/check.svg" alt="" width="24" height="24"><span>Comfortable, modern facilities</span></li>
-            <li class="why__item reveal"><img src="assets/icons/check.svg" alt="" width="24" height="24"><span>Transparent pricing and flexible plans</span></li>
+            <li class="why__item reveal"><img src="assets/icons/check.svg" alt="" width="24" height="24"><span>A written price before any treatment starts</span></li>
+            <li class="why__item reveal"><img src="assets/icons/check.svg" alt="" width="24" height="24"><span>Findings explained in plain words, with photos</span></li>
+            <li class="why__item reveal"><img src="assets/icons/check.svg" alt="" width="24" height="24"><span>Appointments that start on time</span></li>
+            <li class="why__item reveal"><img src="assets/icons/check.svg" alt="" width="24" height="24"><span>Most insurance accepted, plus payment plans</span></li>
           </ul>
         </div>
         <div class="why__media img-zoom reveal reveal--zoom">
-          <img src="assets/img/why-doctor.webp" alt="Smiling dentist in a white coat with arms crossed in a modern clinic" width="900" height="1018" loading="lazy">
+          <img src="assets/img/why-doctor.webp" alt="Smiling dentist in a white coat, arms crossed, in a treatment room" width="900" height="1018" loading="lazy">
         </div>
         <dl class="stats" data-stagger>
-          <div class="stat reveal"><dt class="sr-only">Average rating</dt><dd class="stat__num"><span data-count="4.9">4.9</span><small>/5</small></dd><dd class="stat__label" aria-hidden="true">Average Rating</dd></div>
-          <div class="stat reveal"><dt class="sr-only">In-house specialists</dt><dd class="stat__num"><span data-count="6">6</span></dd><dd class="stat__label" aria-hidden="true">In-House Specialists</dd></div>
-          <div class="stat reveal"><dt class="sr-only">Happy patients</dt><dd class="stat__num"><span data-count="10" data-suffix="K+">10K+</span></dd><dd class="stat__label" aria-hidden="true">Happy Patients</dd></div>
-          <div class="stat reveal"><dt class="sr-only">Years of experience</dt><dd class="stat__num"><span data-count="20" data-suffix="+">20+</span></dd><dd class="stat__label" aria-hidden="true">Years of Experience</dd></div>
+          <div class="stat reveal"><dt class="sr-only">Average patient rating</dt><dd class="stat__num"><span data-count="4.9">4.9</span><small>/5</small></dd><dd class="stat__label" aria-hidden="true">Patient Rating</dd></div>
+          <div class="stat reveal"><dt class="sr-only">Specialists in the clinic</dt><dd class="stat__num"><span data-count="6">6</span></dd><dd class="stat__label" aria-hidden="true">Specialists In-House</dd></div>
+          <div class="stat reveal"><dt class="sr-only">Patients treated</dt><dd class="stat__num"><span data-count="10" data-suffix="K+">10K+</span></dd><dd class="stat__label" aria-hidden="true">Patients Treated</dd></div>
+          <div class="stat reveal"><dt class="sr-only">Years in practice</dt><dd class="stat__num"><span data-count="20" data-suffix="+">20+</span></dd><dd class="stat__label" aria-hidden="true">Years in Practice</dd></div>
         </dl>
       </div>
     </section>
@@ -127,15 +130,15 @@
       <div class="container section process">
         <div>
           <div class="headline reveal">
-            <h2 class="h-40" id="how-title">How It Works</h2>
-            <p class="p-18">Simple steps to a healthier, brighter smile</p>
+            <h2 class="h-40" id="how-title">Your first visit, step by step</h2>
+            <p class="p-18">No surprises. Here is exactly what happens.</p>
           </div>
           <ol class="steps" role="list" data-steps>
-            <li><button class="step" type="button" aria-expanded="false"><span class="step__num">01</span><span class="step__main"><span class="h-24">Book a Visit</span><span class="step__desc"><span class="p-16">Choose your service and schedule</span></span><span class="step__progress" aria-hidden="true"><i></i></span></span></button></li>
-            <li><button class="step" type="button" aria-expanded="true"><span class="step__num">02</span><span class="step__main"><span class="h-24">Meet Your Dentist</span><span class="step__desc"><span class="p-16">Consult with our expert team</span></span><span class="step__progress" aria-hidden="true"><i></i></span></span></button></li>
-            <li><button class="step" type="button" aria-expanded="false"><span class="step__num">03</span><span class="step__main"><span class="h-24">Get Diagnosed</span><span class="step__desc"><span class="p-16">Digital X-rays and a clear treatment plan</span></span><span class="step__progress" aria-hidden="true"><i></i></span></span></button></li>
-            <li><button class="step" type="button" aria-expanded="false"><span class="step__num">04</span><span class="step__main"><span class="h-24">Receive Treatment</span><span class="step__desc"><span class="p-16">Gentle care with comfort options at every step</span></span><span class="step__progress" aria-hidden="true"><i></i></span></span></button></li>
-            <li><button class="step" type="button" aria-expanded="false"><span class="step__num">05</span><span class="step__main"><span class="h-24">Follow-Up &amp; Smile</span><span class="step__desc"><span class="p-16">Aftercare reminders and check-ins</span></span><span class="step__progress" aria-hidden="true"><i></i></span></span></button></li>
+            <li><button class="step" type="button" aria-expanded="false"><span class="step__num">01</span><span class="step__main"><span class="h-24">Book a time</span><span class="step__desc"><span class="p-16">Online or by phone. We confirm within one business day.</span></span><span class="step__progress" aria-hidden="true"><i></i></span></span></button></li>
+            <li><button class="step" type="button" aria-expanded="true"><span class="step__num">02</span><span class="step__main"><span class="h-24">Talk with your dentist</span><span class="step__desc"><span class="p-16">Ten minutes on your history and anything that worries you.</span></span><span class="step__progress" aria-hidden="true"><i></i></span></span></button></li>
+            <li><button class="step" type="button" aria-expanded="false"><span class="step__num">03</span><span class="step__main"><span class="h-24">Exam and X-rays</span><span class="step__desc"><span class="p-16">A full check of teeth and gums, with low-dose digital X-rays.</span></span><span class="step__progress" aria-hidden="true"><i></i></span></span></button></li>
+            <li><button class="step" type="button" aria-expanded="false"><span class="step__num">04</span><span class="step__main"><span class="h-24">Your plan and price</span><span class="step__desc"><span class="p-16">Options, costs and timing in writing. No pressure to decide today.</span></span><span class="step__progress" aria-hidden="true"><i></i></span></span></button></li>
+            <li><button class="step" type="button" aria-expanded="false"><span class="step__num">05</span><span class="step__main"><span class="h-24">Treatment and follow-up</span><span class="step__desc"><span class="p-16">We book what you choose and remind you before each visit.</span></span><span class="step__progress" aria-hidden="true"><i></i></span></span></button></li>
           </ol>
         </div>
         <div class="process__media img-zoom reveal reveal--right">
@@ -147,23 +150,23 @@
     <!-- Video -->
     <section class="container section" aria-labelledby="video-title">
       <div class="headline headline--center reveal" style="max-width:700px">
-        <h2 class="h-40" id="video-title">Discover the Toothly Experience</h2>
-        <p class="p-18">See how we make every visit comfortable and effective</p>
+        <h2 class="h-40" id="video-title">Take a look inside</h2>
+        <p class="p-18">Meet the team and see the rooms before you come in</p>
       </div>
       <div class="video reveal reveal--zoom">
         <img src="assets/img/video.webp" alt="" width="1024" height="683" loading="lazy">
-        <button class="play-btn" type="button" data-open-video aria-haspopup="dialog"><svg aria-hidden="true"><use href="#i-play"/></svg><span class="sr-only">Play the Toothly clinic tour video</span></button>
+        <button class="play-btn" type="button" data-open-video aria-haspopup="dialog"><svg aria-hidden="true"><use href="#i-play"/></svg><span class="sr-only">Play the clinic tour video</span></button>
       </div>
     </section>
-    <dialog class="modal" id="video-modal" aria-label="Toothly clinic tour video">
+    <dialog class="modal" id="video-modal" aria-label="Clinic tour video">
       <button class="modal__close" type="button" aria-label="Close video">×</button>
       <div class="modal__body">
         <video controls preload="none" poster="assets/img/video.webp" playsinline>
           <source src="assets/video/clinic-tour.mp4" type="video/mp4">
         </video>
         <div class="modal__fallback" hidden>
-          <p class="h-24" style="color:#fff">Clinic tour coming soon</p>
-          <p>The tour video has not been added yet. Add <code>assets/video/clinic-tour.mp4</code> and it will play here.</p>
+          <p class="h-24" style="color:#fff">The tour video is on its way</p>
+          <p>We’re still filming. In the meantime, you’re welcome to visit and look around in person.</p>
         </div>
       </div>
     </dialog>
@@ -171,9 +174,9 @@
     <!-- Doctors -->
     <section class="container section doctors" data-carousel aria-labelledby="dr-title">
       <div class="doctors__head reveal reveal--left">
-        <h2 class="h-40" id="dr-title">Meet Our Dental Experts</h2>
+        <h2 class="h-40" id="dr-title">The people you’ll see</h2>
         <div style="display:flex;flex-direction:column;gap:24px">
-          <p class="p-18">Compassionate care from experienced professionals</p>
+          <p class="p-18">Six specialists under one roof, so you rarely need a referral</p>
           <div class="carousel-nav">
             <button class="icon-btn" type="button" data-prev aria-label="Previous dentists"><svg aria-hidden="true"><use href="#i-caret-left"/></svg></button>
             <button class="icon-btn" type="button" data-next aria-label="Next dentists"><svg aria-hidden="true"><use href="#i-caret-right"/></svg></button>
@@ -189,62 +192,78 @@
     </section>
 
     <!-- Pricing -->
-    <section class="container section" aria-labelledby="price-title">
+    <section class="container section" aria-labelledby="price-title" data-pricing>
       <div class="headline headline--center reveal">
-        <h2 class="h-40" id="price-title">Transparent Pricing for Quality Care</h2>
-        <p class="p-18">From basic checkups to premium treatments, we have a plan for everyone</p>
+        <h2 class="h-40" id="price-title">Membership plans</h2>
+        <p class="p-18">No dental insurance? One fixed price covers your routine care. Cancel anytime.</p>
       </div>
-      <ul class="pricing" role="list" data-stagger>
-        <li class="plan reveal">
+      <fieldset class="billing reveal">
+        <legend class="sr-only">Billing period</legend>
+        <label><input type="radio" name="billing" value="weekly"><span>Weekly</span></label>
+        <label><input type="radio" name="billing" value="monthly" checked><span>Monthly</span></label>
+        <label><input type="radio" name="billing" value="yearly"><span>Yearly <em>2 months free</em></span></label>
+      </fieldset>
+      <ul class="pricing" role="list" data-stagger style="margin-top:40px">
+        <li class="plan reveal" data-plan="Basic Care" data-weekly="12" data-monthly="49" data-yearly="490">
           <div class="plan__main">
-            <div class="plan__info"><h3 class="h-24">Basic Care</h3><p class="p-16">Perfect for routine dental maintenance and early prevention</p></div>
-            <p class="plan__price"><strong>$49</strong><span>/month</span></p>
-            <a class="btn btn--block" href="contact.html?subject=Basic%20Care%20plan#message" aria-label="Choose Basic Care plan, $49 per month">Choose Plan</a>
+            <div class="plan__info"><h3 class="h-24">Basic Care</h3><p class="p-16">For people who want to stay ahead of problems with regular checkups</p></div>
+            <div>
+              <p class="plan__price"><strong data-amount>$49</strong><span data-per>/month</span></p>
+              <p class="plan__note" data-note>Billed monthly</p>
+            </div>
+            <a class="btn btn--block" data-choose href="contact.html?subject=Basic%20Care%20plan#message">Choose Basic Care</a>
           </div>
           <ul class="benefits p-16" role="list">
-            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">Routine check-ups</li>
+            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">Two checkups and cleanings a year</li>
             <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">X-rays included</li>
-            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">24/7 support access</li>
-            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">Free dental kit (annual)</li>
-            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">One fluoride treatment per year</li>
-            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">Priority reminder for appointments</li>
+            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">One fluoride treatment a year</li>
+            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">Free dental kit every year</li>
+            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">Phone advice, day or night</li>
+            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">Text reminders before visits</li>
           </ul>
         </li>
-        <li class="plan reveal">
+        <li class="plan reveal" data-plan="Smile Plus" data-weekly="23" data-monthly="99" data-yearly="990">
           <div class="plan__main">
-            <div class="plan__info"><h3 class="h-24">Smile Plus</h3><p class="p-16">Great for those seeking cosmetic enhancement with added comfort</p></div>
-            <p class="plan__price"><strong>$99</strong><span>/month</span></p>
-            <a class="btn btn--block" href="contact.html?subject=Smile%20Plus%20plan#message" aria-label="Choose Smile Plus plan, $99 per month">Choose Plan</a>
+            <div class="plan__info"><h3 class="h-24">Smile Plus</h3><p class="p-16">Basic Care, plus whitening and cover for the unexpected</p></div>
+            <div>
+              <p class="plan__price"><strong data-amount>$99</strong><span data-per>/month</span></p>
+              <p class="plan__note" data-note>Billed monthly</p>
+            </div>
+            <a class="btn btn--block" data-choose href="contact.html?subject=Smile%20Plus%20plan#message">Choose Smile Plus</a>
           </div>
           <ul class="benefits p-16" role="list">
-            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">All Basic Care features</li>
-            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">Teeth cleaning &amp; whitening</li>
-            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">1 emergency visit/year</li>
+            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">Everything in Basic Care</li>
+            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">Professional whitening once a year</li>
+            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">One emergency visit a year</li>
             <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">Oral cancer screening</li>
-            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">10% discount on additional treatments</li>
-            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">Dedicated treatment coordinator</li>
+            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">10% off any other treatment</li>
+            <li><img src="assets/icons/check-circle.svg" alt="" width="24" height="24">One coordinator who handles your bookings</li>
           </ul>
         </li>
-        <li class="plan plan--featured reveal">
+        <li class="plan plan--featured reveal" data-plan="Premium Care" data-weekly="42" data-monthly="179" data-yearly="1790">
           <div class="plan__main">
-            <div class="plan__info"><h3 class="h-24">Premium Care</h3><p class="p-16">Complete dental coverage for proactive and aesthetic-focused patients</p></div>
-            <p class="plan__price"><strong>$179</strong><span>/month</span></p>
-            <a class="btn btn--block btn--on-brand" href="contact.html?subject=Premium%20Care%20plan#message" aria-label="Choose Premium Care plan, $179 per month">Choose Plan</a>
+            <div class="plan__info"><h3 class="h-24">Premium Care</h3><p class="p-16">Our most complete cover, for people who want cosmetic work included</p></div>
+            <div>
+              <p class="plan__price"><strong data-amount>$179</strong><span data-per>/month</span></p>
+              <p class="plan__note" data-note>Billed monthly</p>
+            </div>
+            <a class="btn btn--block btn--on-brand" data-choose href="contact.html?subject=Premium%20Care%20plan#message">Choose Premium Care</a>
           </div>
           <ul class="benefits p-16" role="list">
-            <li><img src="assets/icons/check-circle-white.svg" alt="" width="24" height="24">Routine check-ups</li>
-            <li><img src="assets/icons/check-circle-white.svg" alt="" width="24" height="24">X-rays included</li>
-            <li><img src="assets/icons/check-circle-white.svg" alt="" width="24" height="24">24/7 support access</li>
-            <li><img src="assets/icons/check-circle-white.svg" alt="" width="24" height="24">Free dental kit (annual)</li>
-            <li><img src="assets/icons/check-circle-white.svg" alt="" width="24" height="24">One fluoride treatment per year</li>
-            <li><img src="assets/icons/check-circle-white.svg" alt="" width="24" height="24">Priority reminder for appointments</li>
+            <li><img src="assets/icons/check-circle-white.svg" alt="" width="24" height="24">Everything in Smile Plus</li>
+            <li><img src="assets/icons/check-circle-white.svg" alt="" width="24" height="24">Four cleanings a year</li>
+            <li><img src="assets/icons/check-circle-white.svg" alt="" width="24" height="24">Unlimited emergency visits</li>
+            <li><img src="assets/icons/check-circle-white.svg" alt="" width="24" height="24">20% off cosmetic treatment</li>
+            <li><img src="assets/icons/check-circle-white.svg" alt="" width="24" height="24">Night guard or retainer each year</li>
+            <li><img src="assets/icons/check-circle-white.svg" alt="" width="24" height="24">First pick of appointment times</li>
           </ul>
         </li>
       </ul>
     </section>
 
     <!-- Clients -->
-    <section class="clients" aria-label="Partners and insurance providers">
+    <section class="clients" aria-label="Insurance partners">
+      <p class="clients__label">We work with most major insurers</p>
       <div class="marquee">
         <ul class="marquee__group" role="list">
           <li><img src="assets/icons/client-1.svg" alt="Logoipsum" width="135" height="31"></li>
@@ -270,8 +289,8 @@
       <div class="container testi" data-testi>
         <div class="testi__head">
           <div class="headline reveal">
-            <h2 class="h-40" id="testi-title">Hear From Our Happy Patients</h2>
-            <p class="p-18">Real stories from patients who’ve rediscovered their smile</p>
+            <h2 class="h-40" id="testi-title">In our patients’ words</h2>
+            <p class="p-18">What people tell us after their visit</p>
           </div>
           <div class="carousel-nav">
             <button class="icon-btn" type="button" data-prev aria-label="Previous reviews" aria-controls="testi-track"><svg aria-hidden="true"><use href="#i-caret-up"/></svg></button>
@@ -286,35 +305,35 @@
                 <div class="t-card__who"><span class="avatar"><img src="assets/img/avatar-amanda.webp" alt="" width="96" height="95" loading="lazy"></span><p class="h-18">Amanda Lewis</p></div>
                 <div class="stars" role="img" aria-label="Rated 5 out of 5"><img src="assets/icons/star.svg" alt=""><img src="assets/icons/star.svg" alt=""><img src="assets/icons/star.svg" alt=""><img src="assets/icons/star.svg" alt=""><img src="assets/icons/star.svg" alt=""></div>
               </div>
-              <blockquote class="p-16"><p>I used to dread dental appointments, but Toothly changed that. The staff is welcoming, the care is gentle, and I finally feel confident in my smile again.</p></blockquote>
+              <blockquote class="p-16"><p>I hadn’t seen a dentist in six years because I was embarrassed. Nobody lectured me. They showed me what needed doing, in what order, and what it would cost.</p></blockquote>
             </li>
             <li class="t-card reveal">
               <div class="t-card__head">
                 <div class="t-card__who"><span class="avatar"><img src="assets/img/avatar-daniel.webp" alt="" width="96" height="96" loading="lazy"></span><p class="h-18">Daniel Wright</p></div>
                 <div class="stars" role="img" aria-label="Rated 5 out of 5"><img src="assets/icons/star.svg" alt=""><img src="assets/icons/star.svg" alt=""><img src="assets/icons/star.svg" alt=""><img src="assets/icons/star.svg" alt=""><img src="assets/icons/star.svg" alt=""></div>
               </div>
-              <blockquote class="p-16"><p>Toothly exceeded my expectations. The clinic is spotless, the team is professional, and my root canal was completely painless. I always feel well cared for.</p></blockquote>
+              <blockquote class="p-16"><p>Root canal on Tuesday, back at work on Wednesday. Dr. Ramirez told me what he was doing at each step, which helped more than the numbing did.</p></blockquote>
             </li>
             <li class="t-card reveal">
               <div class="t-card__head">
                 <div class="t-card__who"><span class="avatar"><img src="assets/img/avatar-julia.webp" alt="" width="96" height="125" loading="lazy"></span><p class="h-18">Julia Monroe</p></div>
                 <div class="stars" role="img" aria-label="Rated 5 out of 5"><img src="assets/icons/star.svg" alt=""><img src="assets/icons/star.svg" alt=""><img src="assets/icons/star.svg" alt=""><img src="assets/icons/star.svg" alt=""><img src="assets/icons/star.svg" alt=""></div>
               </div>
-              <blockquote class="p-16"><p>Everything at Toothly runs smoothly—from booking to follow-up. The dentists take their time, and I never feel rushed. My smile has never looked better.</p></blockquote>
+              <blockquote class="p-16"><p>They text the day before, and the appointment actually starts on time. Small thing, but I’ve never had that at a dentist before.</p></blockquote>
             </li>
             <li class="t-card reveal">
               <div class="t-card__head">
                 <div class="t-card__who"><span class="avatar"><img src="assets/img/avatar-laura.webp" alt="" width="96" height="144" loading="lazy"></span><p class="h-18">Laura Thompson</p></div>
                 <div class="stars" role="img" aria-label="Rated 5 out of 5"><img src="assets/icons/star.svg" alt=""><img src="assets/icons/star.svg" alt=""><img src="assets/icons/star.svg" alt=""><img src="assets/icons/star.svg" alt=""><img src="assets/icons/star.svg" alt=""></div>
               </div>
-              <blockquote class="p-16"><p>Toothly made my son’s first visit a breeze. The staff was so patient and kind, and he actually asked when we could come back.</p></blockquote>
+              <blockquote class="p-16"><p>My son was dreading his first visit. Dr. Nguyen let him hold the mirror and count his own teeth. On the way home he asked when he could go back.</p></blockquote>
             </li>
             <li class="t-card reveal">
               <div class="t-card__head">
                 <div class="t-card__who"><span class="avatar"><img src="assets/img/avatar-henry.webp" alt="" width="96" height="144" loading="lazy"></span><p class="h-18">Henry Delgado</p></div>
                 <div class="stars" role="img" aria-label="Rated 5 out of 5"><img src="assets/icons/star.svg" alt=""><img src="assets/icons/star.svg" alt=""><img src="assets/icons/star.svg" alt=""><img src="assets/icons/star.svg" alt=""><img src="assets/icons/star.svg" alt=""></div>
               </div>
-              <blockquote class="p-16"><p>Our daughter used to be terrified of dentists, until we found Toothly. Now every visit is smooth and stress-free for all of us.</p></blockquote>
+              <blockquote class="p-16"><p>Our daughter used to cry in the car on the way to the dentist. Three visits in, she walks through the door by herself.</p></blockquote>
             </li>
           </ul>
         </div>
@@ -324,21 +343,21 @@
     <!-- Blog -->
     <section class="container section stack-60" id="blog" aria-labelledby="blog-title">
       <div class="blog-head">
-        <h2 class="h-40 reveal" id="blog-title">From the Dentist’s Desk</h2>
-        <p class="p-18 reveal">Your go-to source for trusted dental tips, trends, and wellness advice</p>
+        <h2 class="h-40 reveal" id="blog-title">Advice from our dentists</h2>
+        <p class="p-18 reveal">Short, practical reads. No jargon, no sales pitch.</p>
       </div>
       <ul class="grid-3" role="list" data-stagger>
         <li class="post reveal">
           <div class="post__img"><img src="assets/img/blog-implants.webp" alt="" width="900" height="540" loading="lazy"></div>
-          <div class="post__info"><h3 class="h-20"><a href="#blog">Are Dental Implants Right for You?</a></h3><p class="p-16"><time datetime="2035-04-18">April 18, 2035</time></p></div>
+          <div class="post__info"><h3 class="h-20"><a href="#blog">Implant or Bridge? How to Choose</a></h3><p class="p-16"><time datetime="2035-04-18">April 18, 2035</time> · 5 min read</p></div>
         </li>
         <li class="post reveal">
           <div class="post__img"><img src="assets/img/blog-tips.webp" alt="" width="900" height="600" loading="lazy"></div>
-          <div class="post__info"><h3 class="h-20"><a href="#blog">5 Tips to Maintain a Healthy Smile</a></h3><p class="p-16"><time datetime="2035-02-10">February 10, 2035</time></p></div>
+          <div class="post__info"><h3 class="h-20"><a href="#blog">5 Habits That Matter More Than Brushing Harder</a></h3><p class="p-16"><time datetime="2035-02-10">February 10, 2035</time> · 4 min read</p></div>
         </li>
         <li class="post reveal">
           <div class="post__img"><img src="assets/img/blog-child.webp" alt="" width="900" height="504" loading="lazy"></div>
-          <div class="post__info"><h3 class="h-20"><a href="#blog">When to Bring Your Child for Their First Dental Visit</a></h3><p class="p-16"><time datetime="2035-03-02">March 2, 2035</time></p></div>
+          <div class="post__info"><h3 class="h-20"><a href="#blog">When Should Your Child First See a Dentist?</a></h3><p class="p-16"><time datetime="2035-03-02">March 2, 2035</time> · 3 min read</p></div>
         </li>
       </ul>
     </section>
@@ -347,10 +366,10 @@
     <section class="container cta" aria-labelledby="cta-title">
       <div class="cta__banner reveal reveal--zoom">
         <div class="headline headline--center" style="max-width:none">
-          <h2 class="h-56" id="cta-title">Ready to Smile with Confidence?</h2>
-          <p class="p-18">Book your first appointment now and receive a free dental checkup</p>
+          <h2 class="h-56" id="cta-title">Overdue for a checkup?</h2>
+          <p class="p-18">Your first exam is free for new patients. Booking takes about a minute.</p>
         </div>
-        <a class="btn btn--on-brand" href="#book">Book an Appointment</a>
+        <a class="btn btn--on-brand" href="#book">Book Your Free Exam</a>
       </div>
     </section>
 
