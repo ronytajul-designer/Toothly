@@ -1838,3 +1838,4 @@ body { background: var(--surface); color: var(--c-grey); }
 @media (max-width: 960px) { .fx__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .fx__brand { grid-column: 1 / -1; max-width: none; } }
 @media (max-width: 560px) { .fx__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px 20px; } .fx__col:last-child { grid-column: 1 / -1; } }
 .chips--links { align-self: stretch; }
+.phero .chips--links { width: 100%; max-width: 820px; }
