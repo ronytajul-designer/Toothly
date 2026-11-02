@@ -1,10 +1,10 @@
 <!--meta title="Dental Services | Toothly, San Francisco" description="Cleanings, cosmetic work, aligners and braces, kids’ dentistry, implants and same-day emergency care, all from one in-house team." active="services" body="page-services" -->
-    <section class="bg-subtle under-header" aria-labelledby="svc-title">
-      <div class="container">
-        <div class="page-hero page-hero--center">
-          <h1 class="h-80 reveal" id="svc-title">Everything your teeth need, in one place</h1>
-          <p class="p-18 reveal" style="--i:1">Prevention, repairs, straightening and emergencies, handled by our own specialists. No passing you between clinics.</p>
-        </div>
+    <section class="phero under-header" aria-labelledby="svc-title">
+      <div class="container phero__inner">
+        <p class="eyebrow reveal">Services</p>
+        <h1 class="h-56 phero__title reveal" id="svc-title" style="--i:1">Everything your teeth need, <span class="tone">in one place</span></h1>
+        <p class="p-18 phero__lede reveal" style="--i:2">Prevention, repairs, straightening and emergencies, handled by our own specialists. No passing you between clinics.</p>
+        <ul class="chips chips--links reveal" role="list" style="--i:3" aria-label="Jump to a service"><li><a class="chip" href="service-details.html?service=general">General</a></li><li><a class="chip" href="service-details.html?service=cosmetic">Cosmetic</a></li><li><a class="chip" href="service-details.html?service=orthodontics">Orthodontics</a></li><li><a class="chip" href="service-details.html">Pediatric</a></li><li><a class="chip" href="service-details.html?service=implants">Implants</a></li><li><a class="chip" href="service-details.html?service=emergency">Emergency</a></li></ul>
       </div>
     </section>
 
@@ -39,15 +39,4 @@
 
     {{> faq}}
 
-    <section class="container" style="padding-block:0 clamp(100px,11vw,160px)" aria-labelledby="cta-title">
-      <div class="cta-split cta-split--img-left reveal reveal--zoom">
-        <div class="cta-split__media img-zoom"><img src="assets/img/cta-dentist.webp" alt="" width="1024" height="683" loading="lazy"></div>
-        <div class="cta-split__body">
-          <div class="headline">
-            <h2 class="h-56" id="cta-title">Not Sure Which Service <span class="tone">You Need?</span></h2>
-            <p class="p-18">Tell us what’s bothering you and we’ll suggest where to start. A short phone call usually settles it.</p>
-          </div>
-          <a class="btn btn--on-brand" href="contact.html">Ask Us</a>
-        </div>
-      </div>
-    </section>
+    {{> cta-band}}

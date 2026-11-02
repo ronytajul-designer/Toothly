@@ -95,6 +95,40 @@
     if (current) select(current, true);
   }
 
+
+  /* ---------- Live open / closed status (clinic time, San Francisco) ---------- */
+  $$("[data-open-status]").forEach(function (status) {
+    try {
+      var parts = new Intl.DateTimeFormat("en-US", { timeZone: "America/Los_Angeles", weekday: "short", hour: "numeric", minute: "numeric", hour12: false }).formatToParts(new Date());
+      var get = function (t) { var p = parts.find(function (x) { return x.type === t; }); return p ? p.value : ""; };
+      var day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(get("weekday"));
+      var mins = (Number(get("hour")) % 24) * 60 + Number(get("minute"));
+      var close = day === 6 ? 15 * 60 : 18 * 60;
+      var open = day >= 1 && mins >= 9 * 60 && mins < close;
+      var txt = $("[data-open-text]", status);
+      if (open) { status.classList.add("is-open"); txt.textContent = "Open now, until " + (day === 6 ? "3 PM" : "6 PM"); }
+      else if (day === 0 || (day === 6 && mins >= close)) txt.textContent = "Closed now. Opens Monday at 9 AM";
+      else if (mins < 9 * 60) txt.textContent = "Closed now. Opens today at 9 AM";
+      else txt.textContent = "Closed now. Opens tomorrow at 9 AM";
+    } catch (e) {}
+  });
+
+  /* ---------- About: filter dentists by specialty ---------- */
+  $$("[data-team]").forEach(function (sec) {
+    var chips = $$(".chip[data-filter]", sec), members = $$(".member[data-tags]", sec), live = $("[data-team-status]", sec);
+    chips.forEach(function (c) {
+      c.addEventListener("click", function () {
+        var f = c.getAttribute("data-filter"), shown = 0;
+        chips.forEach(function (o) { o.setAttribute("aria-pressed", String(o === c)); });
+        members.forEach(function (m) {
+          var on = f === "all" || m.getAttribute("data-tags").split(" ").indexOf(f) > -1;
+          m.classList.toggle("is-dim", !on); if (on) { shown++; m.classList.add("is-in"); }
+        });
+        if (live) live.textContent = shown + (shown === 1 ? " dentist" : " dentists") + " shown";
+      });
+    });
+  });
+
   /* ---------- Sticky header ---------- */
   var header = $(".site-header");
   function onScroll() { if (header) header.classList.toggle("is-scrolled", window.scrollY > 8); }

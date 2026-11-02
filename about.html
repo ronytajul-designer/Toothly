@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About Toothly | A Neighborhood Dental Clinic in San Francisco</title>
-  <meta name="description" content="Who we are, how we work, and the eight dentists behind Toothly. Open six days a week in San Francisco.">
+  <meta name="description" content="Who we are, what we promise, and the eight dentists behind Toothly. Open six days a week in San Francisco.">
   <meta name="theme-color" content="#FAFAFA">
   <link rel="icon" href="assets/icons/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,22 +61,28 @@
   </header>
 
   <main id="main" tabindex="-1">
-<section class="container" aria-labelledby="about-title">
-      <div class="page-hero page-hero__split">
-        <h1 class="h-80 reveal" id="about-title">About Toothly</h1>
-        <p class="p-18 reveal" style="text-align:right;max-width:380px;--i:1">A neighborhood clinic run by dentists who would rather explain than upsell</p>
+<!-- Hero -->
+    <section class="phero under-header" aria-labelledby="about-title">
+      <div class="container phero__inner">
+        <p class="proof reveal"><span class="proof__faces" aria-hidden="true"><img class="face" src="assets/img/face-liana.webp" alt="" width="160" height="160"><img class="face" src="assets/img/face-marco.webp" alt="" width="160" height="160"><img class="face" src="assets/img/face-naya.webp" alt="" width="160" height="160"></span><span>8 dentists, 20+ years in San Francisco</span></p>
+        <h1 class="h-56 phero__title reveal" id="about-title" style="--i:1">Dentists who explain <span class="tone">before they treat</span></h1>
+        <p class="p-18 phero__lede reveal" style="--i:2">Toothly is a neighborhood clinic built on two rules: we show you what we see, and you get a written price before any work begins.</p>
+        <div class="phero__actions reveal" style="--i:3">
+          <a class="btn" href="index.html#book">Book a Visit</a>
+          <a class="btn btn--outline" href="#team-title">Meet the Team</a>
+        </div>
       </div>
-      <article class="director reveal reveal--zoom" aria-labelledby="director-title">
+    </section>
+
+    <!-- Founder -->
+    <section class="container section" aria-labelledby="director-title" style="padding-top:clamp(24px,3vw,40px)">
+      <article class="director reveal">
         <img src="assets/img/team-ethan.webp" alt="Dr. Ethan Marquez, founder of Toothly" width="720" height="960">
         <div class="director__msg">
           <p class="eyebrow">From the founder</p>
           <h2 class="h-40" id="director-title">Why I started <span class="tone">Toothly</span></h2>
-          <div>
-            <p class="p-16">For years I watched patients put off care until a small problem became a painful one. Usually it wasn’t the treatment they feared. It was not knowing what would happen, or what it would cost.</p>
-            <p class="p-16">So we built Toothly around two rules. We explain what we see before we touch anything. And you get a written price before treatment begins.</p>
-            <p class="p-16">Most of our team has been here from the start. We know our patients by name, and we’d like to know you too.</p>
-          </div>
-          <footer style="display:flex;flex-direction:column;gap:8px">
+          <p class="director__quote">“Most people don’t fear the treatment. They fear not knowing what will happen, or what it will cost. So we tell you both, up front.”</p>
+          <footer style="display:flex;flex-direction:column;gap:4px">
             <p class="h-20">Dr. Ethan Marquez, DDS</p>
             <p class="p-16 muted">Founder and Clinical Director</p>
           </footer>
@@ -84,131 +90,134 @@
       </article>
     </section>
 
-    <section class="container section vm" aria-labelledby="vm-title">
-      <div class="headline reveal reveal--left" style="gap:24px">
-        <p class="eyebrow">Our values</p>
-          <h2 class="h-40" id="vm-title">What guides <span class="tone">us</span></h2>
-        <p class="p-18">The goal we work toward, and the promises we hold ourselves to every day</p>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:60px">
-        <div class="reveal" style="display:flex;flex-direction:column;gap:24px">
-          <h3 class="h-24">Our goal</h3>
-          <p class="p-18">To be the dental clinic people recommend to friends without being asked</p>
-        </div>
-        <div class="reveal" style="display:flex;flex-direction:column;gap:24px">
-          <h3 class="h-24">Our promises</h3>
-          <ul class="check-list" role="list" data-stagger>
-            <li class="reveal"><img src="assets/icons/check-circle-mission.svg" alt="" width="24" height="26">Explain every finding and option in plain language</li>
-            <li class="reveal"><img src="assets/icons/check-circle-mission.svg" alt="" width="24" height="26">Give you a written price before any treatment starts</li>
-            <li class="reveal"><img src="assets/icons/check-circle-mission.svg" alt="" width="24" height="26">Make visits calm for children and nervous adults</li>
-            <li class="reveal"><img src="assets/icons/check-circle-mission.svg" alt="" width="24" height="26">Recommend only the treatment you actually need</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="bg-subtle" aria-labelledby="values-title">
-      <div class="container section stack-80">
+    <!-- Promises -->
+    <section class="why3" aria-labelledby="promise-title">
+      <div class="container section">
         <div class="headline headline--center reveal">
-          <p class="eyebrow">Every visit</p>
-          <h2 class="h-40" id="values-title">How we <span class="tone">work</span></h2>
-          <p class="p-18">Four habits you’ll notice from your first visit</p>
+          <p class="eyebrow">Our promises</p>
+          <h2 class="h-40" id="promise-title">What you can expect, <span class="tone">every visit</span></h2>
         </div>
-        <ul class="grid-2" role="list" data-stagger>
-          <li class="value-card reveal"><span class="value-card__icon"><img src="assets/icons/user-focus.svg" alt="" width="40" height="40"></span><div style="display:flex;flex-direction:column;gap:16px"><h3 class="h-24">We listen first</h3><p class="p-18">We ask about your goals and worries before we pick up a mirror</p></div></li>
-          <li class="value-card reveal"><span class="value-card__icon"><img src="assets/icons/seal-check.svg" alt="" width="40" height="40"></span><div style="display:flex;flex-direction:column;gap:16px"><h3 class="h-24">We do it properly</h3><p class="p-18">Our dentists train every year and use materials made to last</p></div></li>
-          <li class="value-card reveal"><span class="value-card__icon"><img src="assets/icons/eye.svg" alt="" width="40" height="40"></span><div style="display:flex;flex-direction:column;gap:16px"><h3 class="h-24">No surprise bills</h3><p class="p-18">Every option comes with a price and a timeline, in writing</p></div></li>
-          <li class="value-card reveal"><span class="value-card__icon"><img src="assets/icons/hand-heart.svg" alt="" width="40" height="40"></span><div style="display:flex;flex-direction:column;gap:16px"><h3 class="h-24">Comfort on request</h3><p class="p-18">Headphones, a blanket, a break halfway through. Just ask.</p></div></li>
+        <ul class="promise" role="list" data-stagger>
+          <li class="reveal"><span class="promise__ic"><img src="assets/icons/user-focus.svg" alt="" width="26" height="26"></span><h3 class="h-20">We listen first</h3><p>Your goals and worries, before we pick up a mirror.</p></li>
+          <li class="reveal"><span class="promise__ic"><img src="assets/icons/eye.svg" alt="" width="26" height="26"></span><h3 class="h-20">Plain explanations</h3><p>Photos of what we find, without the jargon.</p></li>
+          <li class="reveal"><span class="promise__ic"><img src="assets/icons/seal-check.svg" alt="" width="26" height="26"></span><h3 class="h-20">No surprise bills</h3><p>Every option priced in writing first.</p></li>
+          <li class="reveal"><span class="promise__ic"><img src="assets/icons/hand-heart.svg" alt="" width="26" height="26"></span><h3 class="h-20">Comfort on request</h3><p>Headphones, a blanket, a break. Just ask.</p></li>
         </ul>
       </div>
     </section>
 
-    <section class="container section stack-60" aria-labelledby="team-title">
-      <div class="section-head">
-        <p class="eyebrow">The dentists</p>
-          <h2 class="h-40 reveal" id="team-title" style="max-width:400px">Meet the <span class="tone">team</span></h2>
-        <p class="p-18 reveal" style="max-width:400px">Eight dentists, each focused on a different part of your care</p>
+    <!-- Team with specialty filter -->
+    <section class="container section" aria-labelledby="team-title" data-team>
+      <div class="team-head">
+        <div class="headline reveal">
+          <p class="eyebrow">The dentists</p>
+          <h2 class="h-40" id="team-title">Meet the <span class="tone">team</span></h2>
+        </div>
+        <div class="chips reveal" role="group" aria-label="Filter dentists by specialty">
+          <button class="chip" type="button" aria-pressed="true" data-filter="all">All</button>
+          <button class="chip" type="button" aria-pressed="false" data-filter="general">Everyday care</button>
+          <button class="chip" type="button" aria-pressed="false" data-filter="smile">Smile and alignment</button>
+          <button class="chip" type="button" aria-pressed="false" data-filter="kids">Kids</button>
+          <button class="chip" type="button" aria-pressed="false" data-filter="surgery">Surgery and implants</button>
+        </div>
       </div>
+      <p class="sr-only" aria-live="polite" data-team-status></p>
       <ul class="team" role="list" data-stagger>
-        <li class="member reveal"><div class="member__img"><img src="assets/img/team-ethan.webp" alt="" width="720" height="960" loading="lazy"></div><div class="member__info"><h3 class="h-24">Dr. Ethan Marquez</h3><p class="p-16" style="color:inherit">Restorative Dentistry</p></div></li>
-        <li class="member reveal"><div class="member__img"><img src="assets/img/team-liana.webp" alt="" width="720" height="960" loading="lazy"></div><div class="member__info"><h3 class="h-24">Dr. Liana Kim</h3><p class="p-16" style="color:inherit">Cosmetic Dentistry</p></div></li>
-        <li class="member reveal"><div class="member__img"><img src="assets/img/team-marco.webp" alt="" width="720" height="960" loading="lazy"></div><div class="member__info"><h3 class="h-24">Dr. Marco Diaz</h3><p class="p-16" style="color:inherit">Orthodontics</p></div></li>
-        <li class="member reveal"><div class="member__img"><img src="assets/img/team-naya.webp" alt="" width="720" height="960" loading="lazy"></div><div class="member__info"><h3 class="h-24">Dr. Naya Ellis</h3><p class="p-16" style="color:inherit">Pediatric Dentistry</p></div></li>
-        <li class="member reveal"><div class="member__img"><img src="assets/img/team-elise.webp" alt="" width="720" height="960" loading="lazy"></div><div class="member__info"><h3 class="h-24">Dr. Elise Tanaka</h3><p class="p-16" style="color:inherit">Oral Surgery</p></div></li>
-        <li class="member reveal"><div class="member__img"><img src="assets/img/team-jamal.webp" alt="" width="720" height="960" loading="lazy"></div><div class="member__info"><h3 class="h-24">Dr. Jamal Noor</h3><p class="p-16" style="color:inherit">Periodontics</p></div></li>
-        <li class="member reveal"><div class="member__img"><img src="assets/img/team-vivian.webp" alt="" width="720" height="960" loading="lazy"></div><div class="member__info"><h3 class="h-24">Dr. Vivian Arce</h3><p class="p-16" style="color:inherit">General Dentistry</p></div></li>
-        <li class="member reveal"><div class="member__img"><img src="assets/img/team-owen.webp" alt="" width="720" height="960" loading="lazy"></div><div class="member__info"><h3 class="h-24">Dr. Owen Blake</h3><p class="p-16" style="color:inherit">Endodontics</p></div></li>
+        <li class="member reveal" data-tags="general"><div class="member__img"><img src="assets/img/team-ethan.webp" alt="" width="720" height="960" loading="lazy"></div><div class="member__info"><h3 class="h-24">Dr. Ethan Marquez</h3><p class="p-16" style="color:inherit">Restorative Dentistry</p></div></li>
+        <li class="member reveal" data-tags="smile"><div class="member__img"><img src="assets/img/team-liana.webp" alt="" width="720" height="960" loading="lazy"></div><div class="member__info"><h3 class="h-24">Dr. Liana Kim</h3><p class="p-16" style="color:inherit">Cosmetic Dentistry</p></div></li>
+        <li class="member reveal" data-tags="smile"><div class="member__img"><img src="assets/img/team-marco.webp" alt="" width="720" height="960" loading="lazy"></div><div class="member__info"><h3 class="h-24">Dr. Marco Diaz</h3><p class="p-16" style="color:inherit">Orthodontics</p></div></li>
+        <li class="member reveal" data-tags="kids"><div class="member__img"><img src="assets/img/team-naya.webp" alt="" width="720" height="960" loading="lazy"></div><div class="member__info"><h3 class="h-24">Dr. Naya Ellis</h3><p class="p-16" style="color:inherit">Pediatric Dentistry</p></div></li>
+        <li class="member reveal" data-tags="surgery"><div class="member__img"><img src="assets/img/team-elise.webp" alt="" width="720" height="960" loading="lazy"></div><div class="member__info"><h3 class="h-24">Dr. Elise Tanaka</h3><p class="p-16" style="color:inherit">Oral Surgery and Implants</p></div></li>
+        <li class="member reveal" data-tags="general"><div class="member__img"><img src="assets/img/team-jamal.webp" alt="" width="720" height="960" loading="lazy"></div><div class="member__info"><h3 class="h-24">Dr. Jamal Noor</h3><p class="p-16" style="color:inherit">Periodontics (gums)</p></div></li>
+        <li class="member reveal" data-tags="general kids"><div class="member__img"><img src="assets/img/team-vivian.webp" alt="" width="720" height="960" loading="lazy"></div><div class="member__info"><h3 class="h-24">Dr. Vivian Arce</h3><p class="p-16" style="color:inherit">General and Family Dentistry</p></div></li>
+        <li class="member reveal" data-tags="general surgery"><div class="member__img"><img src="assets/img/team-owen.webp" alt="" width="720" height="960" loading="lazy"></div><div class="member__info"><h3 class="h-24">Dr. Owen Blake</h3><p class="p-16" style="color:inherit">Endodontics (root canals)</p></div></li>
       </ul>
     </section>
 
-    <section class="container section hours" aria-labelledby="hours-title">
-      <div class="hours__left">
-        <div class="headline reveal">
-          <p class="eyebrow">Opening times</p>
-          <h2 class="h-40" id="hours-title">Clinic <span class="tone">Hours</span></h2>
-          <p class="p-18">Open six days a week. Saturday mornings fill up first, so book those early.</p>
-        </div>
-        <div class="hours__media img-zoom reveal reveal--zoom"><img src="assets/img/clinic-room.webp" alt="Bright treatment room with a dental chair" width="1024" height="683" loading="lazy"></div>
+    <!-- Hours -->
+    <section class="container section hours2" aria-labelledby="hours-title">
+      <div class="headline reveal">
+        <p class="eyebrow">Opening times</p>
+        <h2 class="h-40" id="hours-title">Clinic <span class="tone">hours</span></h2>
+        <p class="p-18">Open six days a week. Saturday mornings fill up first.</p>
+        <p class="hours2__status" data-open-status><span class="foot__dot" aria-hidden="true"></span><span data-open-text>Mon to Sat, from 9 AM</span></p>
       </div>
-      <dl class="schedule" data-stagger>
-        <div class="schedule__row reveal reveal--right" data-day="1"><dt>Monday</dt><dd>09:00 AM – 06:00 PM</dd></div>
-        <div class="schedule__row reveal reveal--right" data-day="2"><dt>Tuesday</dt><dd>09:00 AM – 06:00 PM</dd></div>
-        <div class="schedule__row reveal reveal--right" data-day="3"><dt>Wednesday</dt><dd>09:00 AM – 06:00 PM</dd></div>
-        <div class="schedule__row reveal reveal--right" data-day="4"><dt>Thursday</dt><dd>09:00 AM – 06:00 PM</dd></div>
-        <div class="schedule__row reveal reveal--right" data-day="5"><dt>Friday</dt><dd>09:00 AM – 06:00 PM</dd></div>
-        <div class="schedule__row reveal reveal--right" data-day="6"><dt>Saturday</dt><dd>09:00 AM – 03:00 PM</dd></div>
-        <div class="schedule__row reveal reveal--right" data-day="0"><dt>Sunday</dt><dd>Closed</dd></div>
+      <dl class="week reveal">
+        <div data-day="1"><dt>Mon</dt><dd>9 AM<span>to</span>6 PM</dd></div>
+        <div data-day="2"><dt>Tue</dt><dd>9 AM<span>to</span>6 PM</dd></div>
+        <div data-day="3"><dt>Wed</dt><dd>9 AM<span>to</span>6 PM</dd></div>
+        <div data-day="4"><dt>Thu</dt><dd>9 AM<span>to</span>6 PM</dd></div>
+        <div data-day="5"><dt>Fri</dt><dd>9 AM<span>to</span>6 PM</dd></div>
+        <div data-day="6"><dt>Sat</dt><dd>9 AM<span>to</span>3 PM</dd></div>
+        <div data-day="0" class="is-closed"><dt>Sun</dt><dd>Closed</dd></div>
       </dl>
     </section>
 
-    <section class="container" style="padding-block:60px 120px" aria-labelledby="cta-title">
-      <div class="cta-split reveal reveal--zoom">
-        <div class="cta-split__body">
-          <div class="headline">
-            <h2 class="h-56" id="cta-title">Come and <span class="tone">meet us</span></h2>
-            <p class="p-18">Book a first visit. We’ll show you around, answer your questions, and give you a clear plan with prices.</p>
-          </div>
-          <a class="btn btn--on-brand" href="index.html#book">Book Your First Visit</a>
+    <section class="cta-band" aria-labelledby="cta-band-title">
+      <div class="container cta-band__inner">
+        <ul class="cta-band__bubbles" aria-hidden="true">
+          <li class="b1"><img src="assets/icons/dental-01.svg" alt=""></li>
+          <li class="b2"><img src="assets/icons/dental-03.svg" alt=""></li>
+          <li class="b3"><img src="assets/icons/dental-05.svg" alt=""></li>
+          <li class="b4"><img src="assets/icons/dental-02.svg" alt=""></li>
+          <li class="b5"><img src="assets/icons/dental-04.svg" alt=""></li>
+          <li class="b6"><img src="assets/icons/dental-06.svg" alt=""></li>
+        </ul>
+        <p class="cta-band__team">
+          <span class="cta-band__faces" aria-hidden="true"><img src="assets/img/face-liana.webp" alt="" width="160" height="160"><img src="assets/img/face-naya.webp" alt="" width="160" height="160"><img src="assets/img/face-marco.webp" alt="" width="160" height="160"><img src="assets/img/face-owen.webp" alt="" width="160" height="160"></span>
+          <span>8 dentists, one clinic</span>
+        </p>
+        <h2 class="h-56" id="cta-band-title">Overdue for a checkup? <span class="tone">Your first exam is on us.</span></h2>
+        <p class="p-18">New patients get a free exam and a written plan with prices. Booking takes about a minute, and we confirm within one business day.</p>
+        <div class="cta-band__actions">
+          <a class="btn btn--light" href="index.html#book">Book Your Free Exam</a>
+          <a class="btn btn--glass" href="tel:+11234567890">Call (123) 456-7890</a>
         </div>
-        <div class="cta-split__media img-zoom"><img src="assets/img/cta-patient.webp" alt="" width="1000" height="667" loading="lazy"></div>
+        <p class="cta-band__alt">Mon to Fri 9 AM to 6 PM, Sat 9 AM to 3 PM</p>
       </div>
     </section>
 
+
   </main>
-  <footer class="ft" aria-labelledby="ft-title">
-    <h2 class="sr-only" id="ft-title">Toothly clinic information</h2>
+  <footer class="fx" aria-labelledby="fx-title">
+    <h2 class="sr-only" id="fx-title">Toothly clinic information</h2>
     <div class="container">
-      <div class="ft__top">
-        <div class="ft__brand">
+      <div class="fx__grid">
+        <div class="fx__brand">
           <a class="logo" href="index.html" aria-label="Toothly home"><img src="assets/icons/logo.svg" alt="" width="28" height="28"><span>Toothly</span></a>
           <p>Unhurried dental care for the whole family in San Francisco.</p>
+          <ul class="fx__social" role="list">
+            <li><a href="https://facebook.com" aria-label="Toothly on Facebook" rel="noopener"><svg aria-hidden="true"><use href="#i-facebook"/></svg></a></li>
+            <li><a href="https://instagram.com" aria-label="Toothly on Instagram" rel="noopener"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
+            <li><a href="https://x.com" aria-label="Toothly on X" rel="noopener"><svg aria-hidden="true"><use href="#i-x"/></svg></a></li>
+          </ul>
         </div>
-        <nav aria-label="Footer">
-          <ul class="ft__nav" role="list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
+        <nav class="fx__col" aria-labelledby="fx-explore">
+          <p class="fx__title" id="fx-explore">Explore</p>
+          <ul role="list">
+            <li><a href="about.html">About us</a></li>
             <li><a href="services.html">Services</a></li>
+            <li><a href="index.html#price-title">Membership</a></li>
             <li><a href="index.html#blog">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
+        <div class="fx__col">
+          <p class="fx__title">Visit</p>
+          <address>
+            <p>123 Smile Street<br>San Francisco, CA 94110</p>
+            <p class="fx__muted">Mon to Fri 9 AM to 6 PM<br>Sat 9 AM to 3 PM</p>
+          </address>
+        </div>
+        <div class="fx__col">
+          <p class="fx__title">Contact</p>
+          <ul role="list">
+            <li><a href="tel:+11234567890"><span class="sr-only">Phone: </span>(123) 456-7890</a></li>
+            <li><a href="mailto:info@dentristclinic.com"><span class="sr-only">Email: </span>info@dentristclinic.com</a></li>
+            <li><a href="contact.html">Send a message</a></li>
+          </ul>
+        </div>
       </div>
-
-      <div class="ft__info">
-        <address class="ft__contact">
-          <span>123 Smile Street, San Francisco, CA 94110</span>
-          <a href="tel:+11234567890"><span class="sr-only">Phone: </span>(123) 456-7890</a>
-          <a href="mailto:info@dentristclinic.com"><span class="sr-only">Email: </span>info@dentristclinic.com</a>
-          <span>Mon to Fri 9 AM to 6 PM, Sat 9 AM to 3 PM</span>
-        </address>
-        <ul class="ft__social" role="list">
-          <li><a href="https://facebook.com" aria-label="Toothly on Facebook" rel="noopener"><svg aria-hidden="true"><use href="#i-facebook"/></svg></a></li>
-          <li><a href="https://instagram.com" aria-label="Toothly on Instagram" rel="noopener"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
-          <li><a href="https://x.com" aria-label="Toothly on X" rel="noopener"><svg aria-hidden="true"><use href="#i-x"/></svg></a></li>
-        </ul>
-      </div>
-
-      <div class="ft__legal">
+      <div class="fx__bottom">
         <p>© 2025 Toothly Dental Clinic. Design by Peterdraw.</p>
         <ul role="list">
           <li><a href="#">Privacy Policy</a></li>

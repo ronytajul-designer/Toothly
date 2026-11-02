@@ -66,7 +66,7 @@
       <div class="detail-hero reveal reveal--zoom">
         <img src="assets/img/service-pediatric.webp" alt="" width="1600" height="1066">
         <h1 class="h-80" id="detail-title" data-s="title">Pediatric Dentistry</h1>
-        <p class="p-18" data-s="tagline">Calm, playful visits for kids, from the first tooth to the teenage years</p>
+        <p class="p-18 phero__lede" data-s="tagline">Calm, playful visits for kids, from the first tooth to the teenage years</p>
       </div>
     </section>
 
@@ -129,8 +129,11 @@
         </p>
         <h2 class="h-56" id="cta-band-title">Overdue for a checkup? <span class="tone">Your first exam is on us.</span></h2>
         <p class="p-18">New patients get a free exam and a written plan with prices. Booking takes about a minute, and we confirm within one business day.</p>
-        <a class="btn btn--on-brand cta-band__btn" href="index.html#book"><svg aria-hidden="true" width="20" height="20"><use href="#i-calendar-check"/></svg>Book Your Free Exam</a>
-        <p class="cta-band__alt">Prefer to talk? Call <a href="tel:+11234567890">(123) 456-7890</a></p>
+        <div class="cta-band__actions">
+          <a class="btn btn--light" href="index.html#book">Book Your Free Exam</a>
+          <a class="btn btn--glass" href="tel:+11234567890">Call (123) 456-7890</a>
+        </div>
+        <p class="cta-band__alt">Mon to Fri 9 AM to 6 PM, Sat 9 AM to 3 PM</p>
       </div>
     </section>
 
@@ -275,40 +278,45 @@
     </script>
 
   </main>
-  <footer class="ft" aria-labelledby="ft-title">
-    <h2 class="sr-only" id="ft-title">Toothly clinic information</h2>
+  <footer class="fx" aria-labelledby="fx-title">
+    <h2 class="sr-only" id="fx-title">Toothly clinic information</h2>
     <div class="container">
-      <div class="ft__top">
-        <div class="ft__brand">
+      <div class="fx__grid">
+        <div class="fx__brand">
           <a class="logo" href="index.html" aria-label="Toothly home"><img src="assets/icons/logo.svg" alt="" width="28" height="28"><span>Toothly</span></a>
           <p>Unhurried dental care for the whole family in San Francisco.</p>
+          <ul class="fx__social" role="list">
+            <li><a href="https://facebook.com" aria-label="Toothly on Facebook" rel="noopener"><svg aria-hidden="true"><use href="#i-facebook"/></svg></a></li>
+            <li><a href="https://instagram.com" aria-label="Toothly on Instagram" rel="noopener"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
+            <li><a href="https://x.com" aria-label="Toothly on X" rel="noopener"><svg aria-hidden="true"><use href="#i-x"/></svg></a></li>
+          </ul>
         </div>
-        <nav aria-label="Footer">
-          <ul class="ft__nav" role="list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
+        <nav class="fx__col" aria-labelledby="fx-explore">
+          <p class="fx__title" id="fx-explore">Explore</p>
+          <ul role="list">
+            <li><a href="about.html">About us</a></li>
             <li><a href="services.html">Services</a></li>
+            <li><a href="index.html#price-title">Membership</a></li>
             <li><a href="index.html#blog">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
+        <div class="fx__col">
+          <p class="fx__title">Visit</p>
+          <address>
+            <p>123 Smile Street<br>San Francisco, CA 94110</p>
+            <p class="fx__muted">Mon to Fri 9 AM to 6 PM<br>Sat 9 AM to 3 PM</p>
+          </address>
+        </div>
+        <div class="fx__col">
+          <p class="fx__title">Contact</p>
+          <ul role="list">
+            <li><a href="tel:+11234567890"><span class="sr-only">Phone: </span>(123) 456-7890</a></li>
+            <li><a href="mailto:info@dentristclinic.com"><span class="sr-only">Email: </span>info@dentristclinic.com</a></li>
+            <li><a href="contact.html">Send a message</a></li>
+          </ul>
+        </div>
       </div>
-
-      <div class="ft__info">
-        <address class="ft__contact">
-          <span>123 Smile Street, San Francisco, CA 94110</span>
-          <a href="tel:+11234567890"><span class="sr-only">Phone: </span>(123) 456-7890</a>
-          <a href="mailto:info@dentristclinic.com"><span class="sr-only">Email: </span>info@dentristclinic.com</a>
-          <span>Mon to Fri 9 AM to 6 PM, Sat 9 AM to 3 PM</span>
-        </address>
-        <ul class="ft__social" role="list">
-          <li><a href="https://facebook.com" aria-label="Toothly on Facebook" rel="noopener"><svg aria-hidden="true"><use href="#i-facebook"/></svg></a></li>
-          <li><a href="https://instagram.com" aria-label="Toothly on Instagram" rel="noopener"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
-          <li><a href="https://x.com" aria-label="Toothly on X" rel="noopener"><svg aria-hidden="true"><use href="#i-x"/></svg></a></li>
-        </ul>
-      </div>
-
-      <div class="ft__legal">
+      <div class="fx__bottom">
         <p>© 2025 Toothly Dental Clinic. Design by Peterdraw.</p>
         <ul role="list">
           <li><a href="#">Privacy Policy</a></li>
