@@ -1037,3 +1037,51 @@ body { background: var(--surface); color: var(--c-grey); }
 .blog-head, .section-head { flex-wrap: wrap; row-gap: 14px; }
 .blog-head > .eyebrow, .section-head > .eyebrow { flex-basis: 100%; }
 .blog-head { align-items: flex-end; }
+
+/* ---------- Glossy pill buttons (lighter top, stroke, inner light, glow) ---------- */
+.btn {
+  --g-top: #12937a; --g-mid: #0a735e; --g-bot: #085e4d; --g-stroke: #06523f; --g-glow: 11, 125, 100;
+  background: linear-gradient(180deg, var(--g-top) 0%, var(--g-mid) 52%, var(--g-bot) 100%);
+  border: 1px solid var(--g-stroke);
+  color: #fff; font-weight: 600; letter-spacing: 0.07em;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.22);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.38),        /* top highlight */
+    inset 0 0 0 1px rgba(255, 255, 255, 0.10),      /* inner rim */
+    inset 0 -3px 6px rgba(0, 0, 0, 0.16),           /* inner shade at bottom */
+    0 2px 4px rgba(var(--g-glow), 0.30),            /* contact shadow */
+    0 10px 26px -6px rgba(var(--g-glow), 0.55);     /* soft colored glow */
+}
+.btn:hover {
+  background: linear-gradient(180deg, var(--g-top) 0%, var(--g-mid) 46%, var(--g-bot) 100%);
+  filter: saturate(1.08) brightness(1.04);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.42), inset 0 0 0 1px rgba(255, 255, 255, 0.12), inset 0 -3px 6px rgba(0, 0, 0, 0.16),
+    0 3px 6px rgba(var(--g-glow), 0.32), 0 16px 34px -8px rgba(var(--g-glow), 0.65);
+}
+.btn:active {
+  transform: translateY(1px); filter: none;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.06), 0 1px 2px rgba(var(--g-glow), 0.3);
+}
+.btn::before { filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.22)); }
+.btn::after { display: none; }
+
+/* Dark secondary, same construction */
+.btn--outline, .btn--dark, .plan .btn:not(.btn--on-brand) {
+  --g-top: #4a5a55; --g-mid: #2b3a36; --g-bot: #1c2825; --g-stroke: #101a17; --g-glow: 18, 36, 31;
+  background: linear-gradient(180deg, var(--g-top) 0%, var(--g-mid) 52%, var(--g-bot) 100%);
+}
+.btn--outline:hover, .btn--dark:hover, .plan .btn:not(.btn--on-brand):hover { background: linear-gradient(180deg, var(--g-top) 0%, var(--g-mid) 46%, var(--g-bot) 100%); }
+
+/* Featured plan uses the green one */
+.plan .btn--on-brand { --g-top: #12937a; --g-mid: #0a735e; --g-bot: #085e4d; --g-stroke: #06523f; --g-glow: 11, 125, 100; background: linear-gradient(180deg, var(--g-top) 0%, var(--g-mid) 52%, var(--g-bot) 100%); color: #fff; }
+
+/* White button on green panels */
+.cta__banner .btn--on-brand, .cta-split .btn--on-brand, .map__link.btn--on-brand {
+  background: linear-gradient(180deg, #ffffff 0%, #f1f6f4 100%); color: var(--c-navy); text-shadow: none;
+  border: 1px solid rgba(18, 36, 31, 0.12);
+  box-shadow: inset 0 1px 0 #fff, inset 0 -2px 4px rgba(18, 36, 31, 0.06), 0 2px 4px rgba(0, 0, 0, 0.12), 0 12px 28px -10px rgba(0, 0, 0, 0.45);
+}
+.cta__banner .btn--on-brand::before, .cta-split .btn--on-brand::before, .map__link.btn--on-brand::before { filter: none; }
+
+@media (forced-colors: active) { .btn { border: 2px solid ButtonText; } }
