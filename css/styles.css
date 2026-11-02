@@ -1411,3 +1411,18 @@ body { background: var(--surface); color: var(--c-grey); }
 .rv__tag { color: #075c4a; }
 .foot__legal a { display: inline-flex; min-height: 32px; align-items: center; }
 .rv-grid { margin-top: clamp(40px, 4.2vw, 56px); }
+/* Consistent portraits: mint studio backdrop, framed from the top */
+.dr-card { background: #e4f2ec; }
+.dr-card img, .member__img img { object-position: center 18%; }
+.member__img { background: #e4f2ec; }
+.dr-card::before { background: linear-gradient(180deg, rgba(8,47,39,0) 45%, rgba(8,47,39,.72) 78%, rgba(8,47,39,.92) 100%); }
+/* Director block: founder portrait on the right, message on mint */
+.director { background: #e4f2ec; }
+.director > img { left: auto; right: 0; width: 46%; object-position: center 15%; }
+.director::before { background: linear-gradient(90deg, #e4f2ec 50%, rgba(228,242,236,0) 62%); }
+@media (max-width: 1024px) {
+  .director { padding-top: 0; }
+  .director > img { position: relative; max-width: none; width: calc(100% + 80px); margin: 0 -40px 32px; height: 360px; order: -1; }
+  .director::before { display: none; }
+}
+@media (max-width: 680px) { .director > img { width: calc(100% + 48px); margin: 0 -24px 28px; height: 300px; } }
