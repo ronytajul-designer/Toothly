@@ -1642,3 +1642,43 @@ body { background: var(--surface); color: var(--c-grey); }
   .nav.has-pill > .nav__menu .nav__link.is-target { color: var(--c-navy); }
 }
 @media (prefers-reduced-motion: reduce) { .nav__ghost { transition: opacity 120ms ease !important; scale: 1; } }
+
+/* ==========================================================================
+   Why Toothly v4: same tinted band, photo with four short promise tags
+   ========================================================================== */
+.why4__inner { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(40px, 6vw, 96px); align-items: center; }
+.why4__intro { display: flex; flex-direction: column; gap: 16px; max-width: 460px; }
+.why4__intro .p-18 { color: var(--c-grey); }
+.why4__intro .btn { align-self: flex-start; }
+.why4__media { position: relative; margin: 0; justify-self: center; width: min(100%, 440px); }
+.why4__media > img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%; border-radius: 28px; background: #e4f2ec;
+  box-shadow: 0 40px 70px -46px rgba(11, 125, 100, .65); }
+.why4__tags { list-style: none; margin: 0; padding: 0; }
+.why4__tag { position: absolute; display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px 8px 8px; white-space: nowrap;
+  background: rgba(255, 255, 255, .96); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  border: 1px solid var(--card-border); border-radius: var(--pill);
+  font-size: 15px; font-weight: 500; color: var(--c-navy);
+  box-shadow: 0 2px 4px rgba(18, 36, 31, .05), 0 14px 28px -16px rgba(18, 36, 31, .4);
+  animation: tag-bob 7s cubic-bezier(.45, 0, .55, 1) infinite; }
+.why4__tic { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--c-mint); flex: none; }
+.why4__tic img { width: 16px; height: 16px; }
+.why4__tag.t1 { top: 9%;  left: -18%; animation-delay: -1s; }
+.why4__tag.t2 { top: 33%; right: -20%; animation-delay: -3.5s; }
+.why4__tag.t3 { top: 60%; left: -22%; animation-delay: -2.2s; }
+.why4__tag.t4 { bottom: 8%; right: -14%; animation-delay: -5s; }
+@keyframes tag-bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -5px; } }
+@media (prefers-reduced-motion: reduce) { .why4__tag { animation: none; } }
+@media (max-width: 1200px) {
+  .why4__tag.t1, .why4__tag.t3 { left: -8%; }
+  .why4__tag.t2, .why4__tag.t4 { right: -8%; }
+}
+@media (max-width: 1024px) {
+  .why4__inner { grid-template-columns: minmax(0, 1fr); }
+  .why4__intro { max-width: none; }
+}
+@media (max-width: 600px) {
+  .why4__media { width: 100%; }
+  .why4__media > img { aspect-ratio: 4 / 4.4; }
+  .why4__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .why4__tag { position: static; animation: none; font-size: 14px; }
+}
