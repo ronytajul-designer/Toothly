@@ -541,6 +541,7 @@
         var key = el.getAttribute("data-s");
         if (s[key] != null) el.textContent = s[key];
       });
+      var heroImg = $("[data-s-img]"); if (heroImg && s.img) heroImg.src = s.img;
       var offers = $("[data-s-offers]");
       if (offers && s.offers) {
         $$(".proc-card", offers).forEach(function (card, i) {
