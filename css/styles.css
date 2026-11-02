@@ -1150,3 +1150,111 @@ body { background: var(--surface); color: var(--c-grey); }
 .btn--sm::before { width: 18px; height: 18px; -webkit-mask-size: 18px; mask-size: 18px; }
 @media (max-width: 680px) { .btn { font-size: 15px; padding: 15px 22px 15px 26px; } }
 @media (prefers-reduced-motion: reduce) { .btn__roll > span:last-child { display: none; } }
+
+/* ==========================================================================
+   Calm motion pass: motion only answers the user. Nothing loops or moves on
+   its own. One easing, short durations (150 to 300ms), small distances.
+   ========================================================================== */
+:root { --ease-out: cubic-bezier(0.25, 0.1, 0.25, 1); --dur-fast: 150ms; --dur: 220ms; --dur-slow: 480ms; }
+
+/* Ambient loops removed */
+.hero__media img, .detail-hero img, .hero__badge, .map__pin img,
+.cta__banner::before, .cta__banner::after, .play-btn::before, .play-btn::after { animation: none !important; }
+.play-btn::before, .play-btn::after { display: none; }
+.cta__banner::before, .cta__banner::after { display: none; }
+
+/* Logo strip: slow, steady, pauses on hover */
+.marquee { animation-duration: 60s; }
+
+/* Scroll reveal: a short fade, barely any travel, tight stagger */
+.reveal, .reveal--left, .reveal--right, .reveal--zoom { transform: translateY(12px); }
+.reveal { transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out); transition-delay: calc(min(var(--i, 0), 4) * 60ms); }
+.reveal.is-in { transform: none; }
+
+/* Hover: small lift, gentle image zoom, no spinning icons */
+.svc-card:hover, .svc2:hover, .plan:hover, .rel-card:hover, .value-card:hover, .proc-card:hover { transform: translateY(-3px); }
+.img-zoom img, .svc-card--photo .svc-card__bg img, .dr-card img, .member__img img, .post__img img, .svc2__img img, .gallery img, .video img { transition: transform 400ms var(--ease-out); }
+.img-zoom:hover img, .svc-card--photo:hover .svc-card__bg img, .dr-card:hover img, .member:hover .member__img img, .post:hover .post__img img, .svc2:hover .svc2__img img, .gallery div:hover > img, .video:hover img { transform: scale(1.02); }
+.svc-card:hover .svc-card__icon, .svc2:hover .svc2__icon, .value-card:hover .value-card__icon, .how3__item:hover .how3__num,
+.svc-card:hover .svc-card__deco, .logo:hover img { transform: none; }
+.svc-card__deco { transform: rotate(20.72deg); transition: none; }
+.svc2:hover .svc2__icon { transform: none; }
+.schedule__row.is-today { transform: none; }
+
+/* Buttons: 1px lift, arrow nudge, no label roll */
+.btn { transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out), filter var(--dur); }
+.btn:hover { transform: translateY(-1px); }
+.btn:hover::before { transform: translate(1px, -1px); }
+.btn__roll > span:last-child { display: none; }
+.btn:hover .btn__roll > span { transform: none; }
+.socials a:hover { transform: none; }
+.play-btn:hover { transform: translate(-50%, -50%) scale(1.04); }
+
+/* How it works: no auto-advance, no progress bar */
+.step__progress { display: none; }
+
+/* ---------- Nav: gliding pill indicator ---------- */
+@media (min-width: 1025px) {
+  .nav > .nav__menu { position: relative; isolation: isolate; }
+  .nav__pill {
+    position: absolute; z-index: -1; top: 4px; bottom: 4px; left: 0; width: 0;
+    border-radius: var(--pill); background: #fff; opacity: 0;
+    box-shadow: 0 1px 2px rgba(18,36,31,.08), 0 4px 12px -6px rgba(18,36,31,.28);
+    transition: transform 320ms cubic-bezier(0.32, 0.72, 0, 1), width 320ms cubic-bezier(0.32, 0.72, 0, 1), opacity 200ms ease;
+    will-change: transform, width;
+  }
+  .nav__pill.is-ready { opacity: 1; }
+  .nav.has-pill > .nav__menu .nav__link,
+  .nav.has-pill > .nav__menu .nav__link:hover,
+  .nav.has-pill > .nav__menu .nav__link[aria-current="page"] { background: transparent; box-shadow: none; }
+  .nav.has-pill > .nav__menu .nav__link { transition: color 200ms ease; }
+  .nav.has-pill > .nav__menu .nav__link.is-target { color: var(--c-navy); }
+}
+
+/* ---------- Mobile menu: gentle staggered entrance ---------- */
+@media (max-width: 1024px) {
+  .nav__panel .nav__menu li, .nav__panel .nav__mobile-cta { opacity: 0; transform: translateY(-6px); transition: opacity 240ms ease, transform 280ms cubic-bezier(0.32, 0.72, 0, 1); }
+  .nav__panel.is-open .nav__menu li, .nav__panel.is-open .nav__mobile-cta { opacity: 1; transform: none; }
+  .nav__panel.is-open .nav__menu li:nth-child(2) { transition-delay: 40ms; }
+  .nav__panel.is-open .nav__menu li:nth-child(3) { transition-delay: 80ms; }
+  .nav__panel.is-open .nav__menu li:nth-child(4) { transition-delay: 120ms; }
+  .nav__panel.is-open .nav__mobile-cta { transition-delay: 160ms; }
+  .nav__panel .nav__link { transition: color 200ms ease, padding-left 220ms ease; }
+  .nav__panel .nav__link:hover { padding-left: 10px; color: var(--c-navy); }
+}
+@media (prefers-reduced-motion: reduce) { .nav__pill, .nav__panel .nav__menu li, .nav__panel .nav__mobile-cta { transition: none !important; } }
+
+/* ---------- Why Toothly: header, image + 2x2 benefits, proof strip ---------- */
+.why2 { display: flex; flex-direction: column; gap: clamp(40px, 4.5vw, 64px); }
+.why2__head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 440px); gap: 24px 64px; align-items: end; }
+.why2__head > .p-18 { color: var(--c-grey); }
+.why2__grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 24px; align-items: stretch; }
+.why2__media { position: relative; margin: 0; border-radius: var(--radius-lg); overflow: hidden; min-height: 440px; background: var(--c-subtle); box-shadow: var(--shadow-card); }
+.why2__media > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 400ms var(--ease-out); }
+.why2__media:hover > img { transform: scale(1.02); }
+.why2__rating { position: absolute; left: 16px; right: 16px; bottom: 16px; display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: rgba(255,255,255,.94); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid var(--card-border); border-radius: 16px; }
+.why2__rating strong { display: block; font-family: var(--font-display); font-weight: 500; font-size: 20px; color: var(--c-navy); line-height: 1.2; }
+.why2__rating span span { font-size: 14px; color: var(--text-muted); }
+.why2__features { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.why2__card { display: flex; flex-direction: column; gap: 10px; padding: 28px; background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out); }
+.why2__card:hover { transform: translateY(-3px); box-shadow: 0 2px 4px rgba(18,36,31,.05), 0 20px 40px -28px rgba(18,36,31,.45); }
+.why2__icon { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 14px; background: linear-gradient(180deg, #3b4945, #222d2a); box-shadow: inset 0 1px 0 rgba(255,255,255,.18), 0 6px 14px -8px rgba(18,36,31,.6); }
+.why2__icon img { width: 22px; height: 22px; filter: brightness(0) invert(1); }
+.why2__card .p-16 { color: var(--c-grey); }
+.why2__stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); }
+.why2__stats > div { display: flex; flex-direction: column-reverse; gap: 4px; padding: 24px 28px; }
+.why2__stats > div + div { border-left: 1px solid var(--card-border); }
+.why2__stats dt { font-size: 15px; color: var(--text-muted); }
+.why2__stats dd { margin: 0; font-family: var(--font-display); font-weight: 500; font-size: clamp(32px, 3vw, 44px); line-height: 1.1; letter-spacing: -0.03em; color: var(--c-navy); font-variant-numeric: tabular-nums; }
+@media (max-width: 1024px) {
+  .why2__head, .why2__grid { grid-template-columns: minmax(0, 1fr); }
+  .why2__media { min-height: 0; aspect-ratio: 4 / 3; }
+  .why2__stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .why2__stats > div:nth-child(3) { border-left: 0; }
+  .why2__stats > div:nth-child(n+3) { border-top: 1px solid var(--card-border); }
+}
+@media (max-width: 560px) {
+  .why2__features { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .why2__card { padding: 24px; }
+  .why2__stats > div { padding: 20px; }
+}

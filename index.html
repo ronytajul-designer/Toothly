@@ -145,8 +145,8 @@
           <span class="svc-card__icon"><img src="assets/icons/dental-03.svg" alt="" width="24" height="24"></span>
           <div class="svc-card__body"><h3 class="h-24"><a class="svc-card__link" href="service-details.html?service=orthodontics">Orthodontics</a></h3><p>Clear aligners and braces for teens and adults</p></div>
         </li>
-        <li class="svc-card svc-card--photo on-dark reveal">
-          <div class="svc-card__bg"><img src="assets/img/service-pediatric.webp" alt="" width="1600" height="1066" loading="lazy"></div>
+        <li class="svc-card reveal">
+          <img class="svc-card__deco" src="assets/icons/deco-03.svg" alt="" width="169" height="169">
           <span class="svc-card__icon"><img src="assets/icons/dental-04.svg" alt="" width="24" height="24"></span>
           <div class="svc-card__body"><h3 class="h-24"><a class="svc-card__link" href="service-details.html">Pediatric Dentistry</a></h3><p>Patient, playful visits from the first tooth onward</p></div>
         </li>
@@ -163,32 +163,55 @@
       </ul>
     </section>
 
-    <!-- Why & Numbers -->
-    <section class="container section" style="padding-bottom:clamp(72px,13.9vw,200px)" aria-labelledby="why-title">
-      <div class="why">
-        <div>
-          <div class="headline reveal">
-            <p class="eyebrow">Why Toothly</p>
+    <!-- Why Toothly -->
+    <section class="container section why2" aria-labelledby="why-title">
+      <div class="why2__head">
+        <div class="headline reveal">
+          <p class="eyebrow">Why Toothly</p>
           <h2 class="h-40" id="why-title">What you can <span class="tone">count on</span></h2>
-            <p class="p-18">Four things we do at every visit, without being asked</p>
-          </div>
-          <ul class="why__list" role="list" data-stagger>
-            <li class="why__item reveal"><img src="assets/icons/check.svg" alt="" width="24" height="24"><span>A written price before any treatment starts</span></li>
-            <li class="why__item reveal"><img src="assets/icons/check.svg" alt="" width="24" height="24"><span>Findings explained in plain words, with photos</span></li>
-            <li class="why__item reveal"><img src="assets/icons/check.svg" alt="" width="24" height="24"><span>Appointments that start on time</span></li>
-            <li class="why__item reveal"><img src="assets/icons/check.svg" alt="" width="24" height="24"><span>Most insurance accepted, plus payment plans</span></li>
-          </ul>
         </div>
-        <div class="why__media img-zoom reveal reveal--zoom">
-          <img src="assets/img/why-doctor.webp" alt="Smiling dentist in a white coat, arms crossed, in a treatment room" width="900" height="1018" loading="lazy">
-        </div>
-        <dl class="stats" data-stagger>
-          <div class="stat reveal"><dt class="sr-only">Average patient rating</dt><dd class="stat__num"><span data-count="4.9">4.9</span><small>/5</small></dd><dd class="stat__label" aria-hidden="true">Patient Rating</dd></div>
-          <div class="stat reveal"><dt class="sr-only">Specialists in the clinic</dt><dd class="stat__num"><span data-count="6">6</span></dd><dd class="stat__label" aria-hidden="true">Specialists In-House</dd></div>
-          <div class="stat reveal"><dt class="sr-only">Patients treated</dt><dd class="stat__num"><span data-count="10" data-suffix="K+">10K+</span></dd><dd class="stat__label" aria-hidden="true">Patients Treated</dd></div>
-          <div class="stat reveal"><dt class="sr-only">Years in practice</dt><dd class="stat__num"><span data-count="20" data-suffix="+">20+</span></dd><dd class="stat__label" aria-hidden="true">Years in Practice</dd></div>
-        </dl>
+        <p class="p-18 reveal">Four things we do at every visit, without being asked. They’re the reasons most patients stay with us for years.</p>
       </div>
+
+      <div class="why2__grid">
+        <figure class="why2__media reveal">
+          <img src="assets/img/why-doctor.webp" alt="Smiling dentist in a white coat, arms crossed, in a treatment room" width="900" height="1018" loading="lazy">
+          <figcaption class="why2__rating">
+            <span class="proof__faces" aria-hidden="true"><img src="assets/img/avatar-amanda.webp" alt="" width="96" height="95"><img src="assets/img/avatar-daniel.webp" alt="" width="96" height="96"><img src="assets/img/avatar-julia.webp" alt="" width="96" height="125"></span>
+            <span><strong>4.9 out of 5</strong><span>Average patient rating</span></span>
+          </figcaption>
+        </figure>
+
+        <ul class="why2__features" role="list" data-stagger>
+          <li class="why2__card reveal">
+            <span class="why2__icon"><img src="assets/icons/seal-check.svg" alt="" width="24" height="24"></span>
+            <h3 class="h-20">Prices in writing</h3>
+            <p class="p-16">You see the full cost of every option before any treatment starts.</p>
+          </li>
+          <li class="why2__card reveal">
+            <span class="why2__icon"><img src="assets/icons/eye.svg" alt="" width="24" height="24"></span>
+            <h3 class="h-20">Plain explanations</h3>
+            <p class="p-16">We show you photos of what we find and explain it without jargon.</p>
+          </li>
+          <li class="why2__card reveal">
+            <span class="why2__icon"><img src="assets/icons/calendar.svg" alt="" width="24" height="24"></span>
+            <h3 class="h-20">On-time visits</h3>
+            <p class="p-16">Appointments start when booked, with a text reminder the day before.</p>
+          </li>
+          <li class="why2__card reveal">
+            <span class="why2__icon"><img src="assets/icons/hand-heart.svg" alt="" width="24" height="24"></span>
+            <h3 class="h-20">Insurance handled</h3>
+            <p class="p-16">We accept most major plans, file claims for you, and offer payment plans.</p>
+          </li>
+        </ul>
+      </div>
+
+      <dl class="why2__stats reveal">
+        <div><dt>Specialists in-house</dt><dd><span data-count="6">6</span></dd></div>
+        <div><dt>Patients treated</dt><dd><span data-count="10" data-suffix="K+">10K+</span></dd></div>
+        <div><dt>Years in practice</dt><dd><span data-count="20" data-suffix="+">20+</span></dd></div>
+        <div><dt>Days open each week</dt><dd><span data-count="6">6</span></dd></div>
+      </dl>
     </section>
 
     <!-- How it works -->

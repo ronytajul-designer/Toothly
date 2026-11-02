@@ -10,17 +10,38 @@
   function $$(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
 
 
-  /* ---------- Button label roll (links only, so scripts can still relabel <button>s) ---------- */
-  $$("a.btn").forEach(function (btn) {
-    if ($(".btn__roll", btn)) return;
-    var label = btn.textContent.trim();
-    if (!label) return;
-    btn.textContent = "";
-    var roll = document.createElement("span"); roll.className = "btn__roll";
-    var a = document.createElement("span"); a.textContent = label;
-    var b = document.createElement("span"); b.textContent = label; b.setAttribute("aria-hidden", "true");
-    roll.appendChild(a); roll.appendChild(b); btn.appendChild(roll);
-  });
+
+  /* ---------- Desktop nav: pill glides to hovered / focused item ---------- */
+  var deskMenu = $(".nav > .nav__menu");
+  if (deskMenu) {
+    var navEl = deskMenu.parentElement;
+    var pill = document.createElement("span");
+    pill.className = "nav__pill"; pill.setAttribute("aria-hidden", "true");
+    deskMenu.appendChild(pill);
+    var links = $$(".nav__link", deskMenu);
+    var current = $(".nav__link[aria-current=page]", deskMenu);
+    function moveTo(link) {
+      links.forEach(function (l) { l.classList.toggle("is-target", l === link); });
+      if (!link) { pill.classList.remove("is-ready"); return; }
+      var m = deskMenu.getBoundingClientRect(), r = link.getBoundingClientRect();
+      pill.style.width = r.width + "px";
+      pill.style.transform = "translateX(" + (r.left - m.left - deskMenu.clientLeft) + "px)";
+      pill.classList.add("is-ready");
+    }
+    function reset() { moveTo(current); }
+    navEl.classList.add("has-pill");
+    links.forEach(function (l) {
+      l.addEventListener("mouseenter", function () { moveTo(l); });
+      l.addEventListener("focus", function () { moveTo(l); });
+    });
+    deskMenu.addEventListener("mouseleave", reset);
+    deskMenu.addEventListener("focusout", function (e) { if (!deskMenu.contains(e.relatedTarget)) reset(); });
+    window.addEventListener("resize", reset);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () {
+      pill.style.transition = "none"; reset(); void pill.offsetWidth; pill.style.transition = "";
+    });
+    reset();
+  }
 
   /* ---------- Sticky header ---------- */
   var header = $(".site-header");
@@ -67,7 +88,7 @@
     var target = parseFloat(el.getAttribute("data-count"));
     var decimals = (el.getAttribute("data-count").split(".")[1] || "").length;
     var suffix = el.getAttribute("data-suffix") || "";
-    var start = null, dur = 1600;
+    var start = null, dur = 1100;
     function frame(t) {
       if (!start) start = t;
       var p = Math.min((t - start) / dur, 1);
@@ -106,7 +127,7 @@
     }
     function schedule() {
       clearTimeout(timer);
-      if (userTook || !inView || reduceMotion.matches) return;
+      return; // autoplay disabled: content changes only when the user asks
       list.classList.add("is-auto");
       // restart progress animation
       var bar = $(".step[aria-expanded=true] .step__progress i", list);
