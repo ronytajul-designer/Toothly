@@ -1823,3 +1823,19 @@ body { background: var(--surface); color: var(--c-grey); }
 /* Footer socials: keep icons centred in their circles (overrides .foot__col a) */
 .foot .foot__col .socials a { display: grid; place-items: center; padding: 0; min-height: 0; }
 .foot .foot__col .socials svg { display: block; width: 20px; height: 20px; }
+
+/* ---------- Pricing card spacing + check icon fix ---------- */
+.plan .plan__desc { min-height: 0; margin-top: 8px; }
+.plan .plan__price { margin-top: 28px; }
+.plan .plan__note { margin-top: 6px; }
+.plan ul.plan__list[role="list"] { margin: 28px 0 32px; padding: 28px 0 0; gap: 14px; border-top: 1px solid var(--card-border); }
+.plan .plan__list li { padding-left: 32px; min-height: 22px; line-height: 22px; font-size: 15px; }
+.plan .plan__list li::after { display: none; }
+.plan .plan__list li::before {
+  top: 0; left: 0; width: 22px; height: 22px; border-radius: 0; background: center / 22px 22px no-repeat
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Ccircle cx='11' cy='11' r='11' fill='%23dcf0e7'/%3E%3Cpath d='M6.6 11.3l2.9 2.9 5.9-6' fill='none' stroke='%230b7d64' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.plan--featured .plan__list li::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Ccircle cx='11' cy='11' r='11' fill='%230b7d64'/%3E%3Cpath d='M6.6 11.3l2.9 2.9 5.9-6' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.plan .btn { margin-top: auto; }
