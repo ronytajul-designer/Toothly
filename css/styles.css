@@ -1903,3 +1903,9 @@ body { background: var(--surface); color: var(--c-grey); }
 }
 .page-home .site-header:has(.nav__panel.is-open) .logo { color: var(--c-navy); }
 .page-home .site-header:has(.nav__panel.is-open) .logo img { filter: none; }
+/* Hero photo: anchor to the top so the head is never cropped */
+.hero2__bg img { object-position: 72% 0%; }
+@media (max-width: 1024px) { .hero2__bg img { object-position: 74% 0%; } }
+@media (max-width: 600px) { .hero2__bg img { object-position: 76% 0%; } }
+.hero2__bg picture { display: block; width: 100%; height: 100%; }
+@media (max-width: 600px) { .hero2__bg img { object-position: 50% 0%; } .hero2__bg::after { background: linear-gradient(180deg, rgba(6,40,32,.30) 0%, rgba(6,40,32,.70) 45%, rgba(6,40,32,.92) 75%); } }

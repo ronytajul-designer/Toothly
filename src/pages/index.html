@@ -2,7 +2,10 @@
     <!-- Hero -->
     <section class="hero2" aria-labelledby="hero-title">
       <div class="hero2__bg" aria-hidden="true">
-        <img src="assets/img/hero-wide.webp" srcset="assets/img/hero-wide-sm.webp 900w, assets/img/hero-wide.webp 1536w" sizes="100vw" alt="" width="1536" height="864" fetchpriority="high">
+        <picture>
+          <source media="(max-width: 600px)" srcset="assets/img/hero-mobile.webp" width="648" height="864">
+          <img src="assets/img/hero-wide.webp" srcset="assets/img/hero-wide-sm.webp 1000w, assets/img/hero-wide.webp 1536w" sizes="100vw" alt="" width="1536" height="864" fetchpriority="high">
+        </picture>
       </div>
       <div class="container hero2__content">
         <p class="hero2__rating reveal"><span class="hero2__faces" aria-hidden="true"><img src="assets/img/face-liana.webp" alt="" width="160" height="160"><img src="assets/img/face-naya.webp" alt="" width="160" height="160"><img src="assets/img/face-marco.webp" alt="" width="160" height="160"><img src="assets/img/face-owen.webp" alt="" width="160" height="160"></span><span class="hero2__stars" aria-hidden="true">★★★★★</span><span>4.9 from 10,000+ patients</span></p>
