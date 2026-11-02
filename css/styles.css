@@ -1085,3 +1085,68 @@ body { background: var(--surface); color: var(--c-grey); }
 .cta__banner .btn--on-brand::before, .cta-split .btn--on-brand::before, .map__link.btn--on-brand::before { filter: none; }
 
 @media (forced-colors: active) { .btn { border: 2px solid ButtonText; } }
+
+/* ---------- Buttons rebuilt to match gr8rstudio.com exactly, in green ----------
+   Fill: radial ellipse, darker centre, lighter rim (their texture PNG, recreated in CSS).
+   Ring: 1px saturated stroke drawn by ::after. Depth: 3 tinted inset shadows.
+   Lift: 5-step colored drop shadow. Label: Geist Mono 500 16px, -0.04em, rolls on hover. */
+.btn {
+  --c-core: #066a53; --c-mid: #0a7a61; --c-rim: #0e8569; --c-corner: #14987a;
+  --c-ring: #00a676; --sh: 0, 160, 112;
+  position: relative; isolation: isolate; overflow: hidden;
+  min-height: 54px; padding: 16px 28px 16px 32px; gap: 8px; border: 0; border-radius: 100px;
+  background: radial-gradient(ellipse 64% 78% at 50% 58%, var(--c-core) 0%, var(--c-core) 22%, var(--c-mid) 55%, var(--c-rim) 82%, var(--c-corner) 100%);
+  color: #fff; text-shadow: none; filter: none;
+  font-family: var(--font-mono); font-size: 16px; font-weight: 500; letter-spacing: -0.04em; line-height: 1.2; text-transform: uppercase;
+  box-shadow:
+    rgba(var(--sh), 0.16) 0 4px 12px 0, rgba(var(--sh), 0.14) 0 8px 12px 0, rgba(var(--sh), 0.08) 0 20px 15px 0,
+    rgba(var(--sh), 0.02) 0 40px 16px 0, rgba(var(--sh), 0) 0 60px 18px 0,
+    rgba(var(--sh), 0.08) 0 -4.9px 4.8px 0 inset, rgba(var(--sh), 0.16) 0 4.67px 4.67px 0 inset, rgba(var(--sh), 0.24) 0 8px 12px 0 inset;
+  transition: transform 300ms var(--ease-out), box-shadow 300ms var(--ease-out), filter 300ms;
+}
+.btn::after { /* the ring */
+  content: ""; display: block; position: absolute; inset: 0; z-index: 1; border-radius: inherit;
+  border: 1px solid var(--c-ring); background: none; transform: none; pointer-events: none; transition: none;
+}
+.btn::before { /* arrow */
+  order: 2; width: 22px; height: 22px; filter: none; background: currentColor;
+  -webkit-mask: url(../assets/icons/arrow-bold.svg) center / 22px no-repeat; mask: url(../assets/icons/arrow-bold.svg) center / 22px no-repeat;
+}
+.btn:hover { background: radial-gradient(ellipse 64% 78% at 50% 58%, var(--c-core) 0%, var(--c-core) 22%, var(--c-mid) 55%, var(--c-rim) 82%, var(--c-corner) 100%); transform: translateY(-2px); filter: saturate(1.06);
+  box-shadow:
+    rgba(var(--sh), 0.22) 0 6px 14px 0, rgba(var(--sh), 0.18) 0 12px 16px 0, rgba(var(--sh), 0.10) 0 24px 18px 0,
+    rgba(var(--sh), 0.03) 0 44px 18px 0, rgba(var(--sh), 0) 0 64px 20px 0,
+    rgba(var(--sh), 0.08) 0 -4.9px 4.8px 0 inset, rgba(var(--sh), 0.16) 0 4.67px 4.67px 0 inset, rgba(var(--sh), 0.24) 0 8px 12px 0 inset; }
+.btn:hover::before { transform: translate(2px, -2px); }
+.btn:active { transform: translateY(0); }
+
+/* Label roll on hover (links only; JS adds the two copies) */
+.btn__roll { position: relative; display: inline-flex; flex-direction: column; overflow: hidden; height: 1.2em; }
+.btn__roll > span { display: block; transition: transform 420ms var(--ease-out); }
+.btn:hover .btn__roll > span { transform: translateY(-100%); }
+
+/* Grey secondary, same build with their neutral values */
+.btn--outline, .btn--dark, .plan .btn:not(.btn--on-brand) {
+  --c-core: #525957; --c-mid: #5d6462; --c-rim: #6a716f; --c-corner: #7c8381; --c-ring: #6f7674; --sh: 0, 0, 0;
+}
+.btn--outline, .btn--dark, .plan .btn:not(.btn--on-brand),
+.btn--outline:hover, .btn--dark:hover, .plan .btn:not(.btn--on-brand):hover {
+  background: radial-gradient(ellipse 64% 78% at 50% 58%, var(--c-core) 0%, var(--c-core) 22%, var(--c-mid) 55%, var(--c-rim) 82%, var(--c-corner) 100%);
+}
+.btn--outline, .btn--dark, .plan .btn:not(.btn--on-brand) {
+  box-shadow: rgba(0,0,0,.16) 0 2px 5px 0, rgba(0,0,0,.14) 0 10px 10px 0, rgba(0,0,0,.08) 0 21px 13px 0, rgba(0,0,0,.02) 0 38px 15px 0, rgba(0,0,0,0) 0 60px 16px 0, rgba(255,255,255,.08) 0 -4px 4px 0 inset, rgba(0,0,0,.16) 0 4px 4px 0 inset;
+}
+.plan .btn--on-brand { --c-core: #066a53; --c-mid: #0a7a61; --c-rim: #0e8569; --c-corner: #14987a; --c-ring: #00a676; --sh: 0, 160, 112;
+  background: radial-gradient(ellipse 64% 78% at 50% 58%, var(--c-core) 0%, var(--c-core) 22%, var(--c-mid) 55%, var(--c-rim) 82%, var(--c-corner) 100%); }
+
+/* White variant on green panels */
+.cta__banner .btn--on-brand, .cta-split .btn--on-brand, .map__link.btn--on-brand {
+  --c-ring: rgba(18, 36, 31, 0.14); --sh: 0, 0, 0;
+  background: radial-gradient(ellipse 64% 78% at 50% 58%, #ffffff 0%, #ffffff 40%, #f2f6f4 100%); color: var(--c-navy);
+  box-shadow: rgba(0,0,0,.16) 0 2px 5px 0, rgba(0,0,0,.14) 0 10px 10px 0, rgba(0,0,0,.08) 0 21px 13px 0, rgba(0,0,0,.02) 0 38px 15px 0, rgba(18,36,31,.06) 0 -4px 4px 0 inset;
+}
+
+.btn--sm { min-height: 44px; padding: 10px 20px 10px 24px; font-size: 14px; }
+.btn--sm::before { width: 18px; height: 18px; -webkit-mask-size: 18px; mask-size: 18px; }
+@media (max-width: 680px) { .btn { font-size: 15px; padding: 15px 22px 15px 26px; } }
+@media (prefers-reduced-motion: reduce) { .btn__roll > span:last-child { display: none; } }

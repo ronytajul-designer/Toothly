@@ -9,6 +9,19 @@
   function $(sel, ctx) { return (ctx || document).querySelector(sel); }
   function $$(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
 
+
+  /* ---------- Button label roll (links only, so scripts can still relabel <button>s) ---------- */
+  $$("a.btn").forEach(function (btn) {
+    if ($(".btn__roll", btn)) return;
+    var label = btn.textContent.trim();
+    if (!label) return;
+    btn.textContent = "";
+    var roll = document.createElement("span"); roll.className = "btn__roll";
+    var a = document.createElement("span"); a.textContent = label;
+    var b = document.createElement("span"); b.textContent = label; b.setAttribute("aria-hidden", "true");
+    roll.appendChild(a); roll.appendChild(b); btn.appendChild(roll);
+  });
+
   /* ---------- Sticky header ---------- */
   var header = $(".site-header");
   function onScroll() { if (header) header.classList.toggle("is-scrolled", window.scrollY > 8); }
