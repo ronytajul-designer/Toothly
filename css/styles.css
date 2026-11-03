@@ -1927,3 +1927,6 @@ body { background: var(--surface); color: var(--c-grey); }
 .hero2 { margin-top: calc(var(--header-h, 83px) * -1); padding-top: var(--header-h, 83px); }
 /* Service name label above benefit headline */
 .svc2__kind { font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: #075c4a; margin-bottom: -6px; }
+/* Blog / related heads: stack like other section heads */
+.blog-head, .blog-head[class] { flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 14px; }
+.blog-head p { text-align: left; max-width: 560px; }
